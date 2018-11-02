@@ -1,0 +1,84 @@
+.logo-image{
+    background:mistyrose;
+    width:60px;
+}
+
+.logo-label{
+    color:orange;
+    /* margin-right: 1%; */
+    font-weight: bold;
+    font-size: 150%;
+}
+
+.user-label{
+    color:aqua;
+    text-align: center;
+    font-weight:bold;
+    margin-right: 1%;
+}
+
+.nav-items{
+    float:right;
+}
+
+.expand-nav-button{
+    width:30px;
+    border-radius: 15%;
+}
+
+
+#Logout-button{
+    /* margin-left:20px;
+    margin-right:20px;  */
+    margin-bottom: 10px;  
+}
+
+#Profile-button{
+    /* margin-left:20px; */
+    margin-right:10px;
+    margin-bottom: 10px; 
+}
+
+#Help-button{
+    /* margin-left:20px; */
+    margin-right:10px;
+    margin-bottom: 10px; 
+}
+
+.quick-links{
+    background-image: repeating-linear-gradient(95deg,rgba(47, 47, 187, 0.541),rgba(131, 91, 151, 0.329),rgba(136, 48, 136, 0.767)) ;
+    background-repeat: repeat;
+    width:100%;
+    text-align: center;
+    /* margin-left: 0%; */
+    min-height: 100vw;
+    padding-top: 80%;
+}
+
+.q-links{
+    color:white;
+    font-size: 110%;
+}
+
+.q-links:hover{
+    color:rgba(31, 44, 221, 0.808);
+}
+
+#Profile-badge{
+    /* transform: translateY(-15px); */
+    transform: translate(5px,-15px);
+}
+
+.stats{
+    text-align: center;
+    transform: translateX(-10%)
+}
+
+#Main-body{
+    background-image: repeating-linear-gradient(95deg,rgba(67, 161, 157, 0.452),rgba(150, 143, 45, 0.397),rgba(70, 187, 70, 0.438))
+}
+
+@media screen and (max-width: 600px){
+    ul.topnav li.right, 
+    ul.topnav li {float: none;}
+}
