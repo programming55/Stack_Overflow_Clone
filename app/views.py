@@ -10,6 +10,6 @@ from app import app
 def index():
 	return render_template('index.html')
 
-@app.route('/about')
+@app.route('/User_HomePage')
 def about():
-	return render_template('about.html')
+	return render_template('User_HomePage.html')

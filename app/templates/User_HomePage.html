@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Page Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/User_HomePage.css') }}">
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="User_HomePage.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
+
+
+
+            
+    </head>
+    <body id="Main-body">
+        <nav class="navbar sticky-top navbar-expand-sm bg-dark">
+            <a class="navbar-brand" href="https://www.iiit.ac.in/">
+                <img src="Login_v12/images/iiith_logo.png" alt="Logo" class="logo-image">
+              </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span><img src = "expand_navbar.png" class = "expand-nav-button"></span>
+                  </button>
+                  <label class="nav-item mr-auto">
+                        <label class="logo-label">IIITH Stack Overflow</label>
+                      </label>
+            <div class="collapse navbar-collapse" id="navbarToggler">
+                <ul class="navbar-nav ml-auto mt-2">
+                    <li class="nav-item">
+                            <label class="user-label">Welcome User: user_namex</label>
+                    </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-warning" id="Help-button" href="#">Help</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="btn btn-outline-success" id="Profile-button" href="#">Profile<span class="badge badge-light" id="Profile-badge">5</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-danger" id="Logout-button" href="#">Logout</a>
+                </li>
+                </ul>
+            </div>
+          </nav>
+          <div class="row">
+                <div class="col-sm-2">
+                   <div class="quick-links">
+                    <a href="#" class="q-links">Home</a>
+                    <br>
+                    <a href="#" class="q-links">About</a>
+                    <br>
+                    <a href="#" class="q-links">Support</a>
+                    <br>
+                    <a href="#" class="q-links">Answering Policy</a>
+                    <br>
+                   </div>
+                </div>
+                <div class="column-sm-4">
+                        <!-- <div class="Profile_pic">
+                                <img src="Login_v12/generic_avatar.png" style="width:100px;display: block;
+                                text-align: center" alt="AVATAR">
+                        </div>
+                        <div class="stats">
+                            <ul style="list-style-type:none">
+                                    <li>Reputation: 1</li>
+                                    <li>Name: user_namex</li>
+                                    <li>Member Since: 2018</li>
+                                    <li>Last Seen: Today</li>
+                                  </ul> 
+                        </div> -->
+                        <div class="card" style="width: 12rem; background-color: rgba(230, 230, 250, 0.788)">
+                                <img class="card-img-top" src="Login_v12/generic_avatar.png" style="width:100px;display: block;text-align: center;margin-left: 23%" alt="User Avatar">
+                                <ul class="list-group list-group-flush" >
+                                  <li class="list-group-item" style="background-color: rgba(91, 223, 216, 0.37)">Reputation: 1</li>
+                                  <li class="list-group-item" style="background-color: rgba(91, 223, 216, 0.37)">Name: user_namex</li>
+                                  <li class="list-group-item" style="background-color: rgba(91, 223, 216, 0.37)">Member Since: 2018</li>
+                                </ul>
+                                
+                              </div>
+                </div>
+                <div class="col-sm-6" id="User-main-pane">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                
+                                <li class="nav-item">
+                                  <a class="nav-link" id="activity-tab" data-toggle="tab" href="#activity" role="tab" aria-controls="activity" aria-selected="false">Activity</a>
+                                </li>
+                                <li class="nav-item">
+                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile-edit" role="tab" aria-controls="profile" aria-selected="false"> Edit Profile & Settings</a>
+                                      </li>
+                              </ul>
+                              <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade" id="profile-edit" role="tabpanel" aria-labelledby="profile-tab">
+                                    <div class="edit-profile-container">
+                                        <label class="h4">Edit Profile:</label>
+                                        <label></label>
+                                        <form>
+                                                <div class="form-group">
+                                                  <label for="Email">Email:</label>
+                                                  <input class="form-control" type="text" placeholder="user_namex@abc.com" readonly>
+                                                </div>
+                                                <div class="form-group">
+                                                  <label for="Display-name">Display Name</label>
+                                                  <input type="text" class="form-control" id="Display-name" placeholder="Your Display Name">
+                                                </div>
+                                                <div class="form-group">
+                                                        <label for="change-dp">Change Profile Picture</label>
+                                                        <input type="file" class="form-control-file" id="change-dp">
+                                                      </div>
+                                                      <button type="submit" class="btn btn-primary">Save Changes</button>
+                                              </form>
+                                    </div></div>
+                                <div class="tab-pane fade" id="activity" role="tabpanel" aria-labelledby="activity-tab">this is activity tab</div>
+                              </div>
+                              </div>
+                
+        </div>
+
+
+
+    </body>
+</html>

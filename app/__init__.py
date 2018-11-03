@@ -1,7 +1,7 @@
 from flask import Flask
 
 # Creates the application object 
-app = Flask(__name__)
+app = Flask(__name__,static_url_path='/static')
 
 # Import Views from the app module. (DO NOT Confuse with app variable)
 from app import views
