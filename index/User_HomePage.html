@@ -58,17 +58,27 @@
                    </div>
                 </div>
                 <div class="column-sm-4">
-                        <div class="Profile_pic">
+                        <!-- <div class="Profile_pic">
                                 <img src="Login_v12/generic_avatar.png" style="width:100px;display: block;
                                 text-align: center" alt="AVATAR">
                         </div>
                         <div class="stats">
                             <ul style="list-style-type:none">
+                                    <li>Reputation: 1</li>
                                     <li>Name: user_namex</li>
                                     <li>Member Since: 2018</li>
                                     <li>Last Seen: Today</li>
                                   </ul> 
-                        </div>
+                        </div> -->
+                        <div class="card" style="width: 12rem; background-color: rgba(230, 230, 250, 0.788)">
+                                <img class="card-img-top" src="Login_v12/generic_avatar.png" style="width:100px;display: block;text-align: center;margin-left: 23%" alt="User Avatar">
+                                <ul class="list-group list-group-flush" >
+                                  <li class="list-group-item" style="background-color: rgba(91, 223, 216, 0.37)">Reputation: 1</li>
+                                  <li class="list-group-item" style="background-color: rgba(91, 223, 216, 0.37)">Name: user_namex</li>
+                                  <li class="list-group-item" style="background-color: rgba(91, 223, 216, 0.37)">Member Since: 2018</li>
+                                </ul>
+                                
+                              </div>
                 </div>
                 <div class="col-sm-6" id="User-main-pane">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -81,7 +91,26 @@
                                       </li>
                               </ul>
                               <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade" id="profile-edit" role="tabpanel" aria-labelledby="profile-tab">this is profile tab</div>
+                                <div class="tab-pane fade" id="profile-edit" role="tabpanel" aria-labelledby="profile-tab">
+                                    <div class="edit-profile-container">
+                                        <label class="h4">Edit Profile:</label>
+                                        <label></label>
+                                        <form>
+                                                <div class="form-group">
+                                                  <label for="Email">Email:</label>
+                                                  <input class="form-control" type="text" placeholder="user_namex@abc.com" readonly>
+                                                </div>
+                                                <div class="form-group">
+                                                  <label for="Display-name">Display Name</label>
+                                                  <input type="text" class="form-control" id="Display-name" placeholder="Your Display Name">
+                                                </div>
+                                                <div class="form-group">
+                                                        <label for="change-dp">Change Profile Picture</label>
+                                                        <input type="file" class="form-control-file" id="change-dp">
+                                                      </div>
+                                                      <button type="submit" class="btn btn-primary">Save Changes</button>
+                                              </form>
+                                    </div></div>
                                 <div class="tab-pane fade" id="activity" role="tabpanel" aria-labelledby="activity-tab">this is activity tab</div>
                               </div>
                               </div>
