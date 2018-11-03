@@ -11,5 +11,9 @@ def index():
 	return render_template('index.html')
 
 @app.route('/User_HomePage')
-def about():
+def User_HomePage():
 	return render_template('User_HomePage.html')
+
+@app.route('/QandA')
+def QandA():
+	return render_template('QandA.html')
