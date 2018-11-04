@@ -10,10 +10,14 @@ from app import app
 def index():
 	return render_template('index.html')
 
-@app.route('/User_HomePage')
+@app.route('/userpage')
 def User_HomePage():
 	return render_template('User_HomePage.html')
 
-@app.route('/QandA')
+@app.route('/qanda')
 def QandA():
 	return render_template('QandA.html')
+
+@app.route('/about')
+def About():
+	return render_template('About.html')
