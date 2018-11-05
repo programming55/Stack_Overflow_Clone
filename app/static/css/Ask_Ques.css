@@ -117,6 +117,7 @@
     overflow-y: auto;
     resize: none;
     word-wrap: break-word;
+    background-color: rgba(248, 252, 255, 0.85);
 }
 
 #Tips-Answering{
@@ -143,6 +144,8 @@
 	border-radius: 30px;
     border: 1px solid transparent;
     width: 80%;
+    border-color: chartreuse;
+    border-width: 2px;
 }
 
 .search-icon{

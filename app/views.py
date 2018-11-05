@@ -25,3 +25,7 @@ def Ask_Question():
 @app.route('/about')
 def About():
 	return render_template('About.html')
+
+@app.route('/signup')
+def Signup():
+	return render_template('Signup.html')

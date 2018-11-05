@@ -121,6 +121,8 @@
 	border-radius: 30px;
     border: 1px solid transparent;
     width: 80%;
+    border-color: chartreuse;
+    border-width: 2px;
 }
 
 .search-icon{

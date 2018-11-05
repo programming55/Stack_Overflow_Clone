@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Ask Questions</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/Ask_Ques.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -69,7 +69,7 @@
                         <form>
                                 <div class="form-group">
                                   <label for="question-title" style="font-weight:bold;font-size:large">Title of Question:</label>
-                                  <input type="text" class="form-control" id="question-title" placeholder="Enter the title of your question" required>
+                                  <input type="text" class="form-control" id="question-title" placeholder="Enter the title of your question" style=" background-color: rgba(248, 252, 255, 0.85);" required>
                                 </div>
                                 <div class="form-group">
                                   <label for="question-body" style="font-weight:bold;font-size:large">Body of the question</label>
@@ -78,7 +78,7 @@
                                 </div>
                                 <div class="form-group">
                                         <label for="question-tags" style="font-weight:bold;font-size:large">Tags for Question:</label>
-                                        <input type="text" class="form-control" id="question-tags" placeholder="Enter the tags of your question">
+                                        <input type="text" class="form-control" id="question-tags" placeholder="Enter the tags of your question" style=" background-color: rgba(248, 252, 255, 0.85);">
                                 </div>
                                 <button type="submit" class="btn btn-primary" style="text-align: center">Post Question</button>
                                 
