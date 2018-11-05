@@ -33,7 +33,7 @@
 .features-heading{
 	font-weight: bold;
 	font-style: italic;
-	font-size:large;
+	font-size:140%;
 }
 
 .text-body{
@@ -46,7 +46,7 @@
 #main-body{
 	background-image: url("images/background3.jpg");
 	background-size:auto;
-	font-size: large;
+	font-size: 120%;
 }
 
 .disclaimer{

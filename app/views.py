@@ -18,6 +18,10 @@ def User_HomePage():
 def QandA():
 	return render_template('QandA.html')
 
+@app.route('/askques')
+def Ask_Question():
+	return render_template('Ask_Ques.html')
+
 @app.route('/about')
 def About():
 	return render_template('About.html')
