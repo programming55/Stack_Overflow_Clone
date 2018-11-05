@@ -2,10 +2,10 @@
     text-align: center;
     margin-top: 2%;
     margin-bottom:3%;
-    color: rgba(64, 66, 192, 0.795);
-    text-shadow: 0 0 5px rgb(165, 186, 255), 0 0 10px #A5F1FF,
-             0 0 20px #A5F1FF, 0 0 30px rgb(165, 201, 255),
-             0 0 40px rgb(165, 166, 255);
+    color: rgba(3, 3, 3, 0.795);
+    text-shadow: 0 0 5px rgb(165, 186, 255), 0 0 5px rgb(141, 206, 218);
+             /* 0 0 20px #A5F1FF, 0 0 30px rgb(165, 201, 255),
+             0 0 40px rgb(165, 166, 255); */
 
 }
 

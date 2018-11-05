@@ -52,18 +52,18 @@
     text-align: left;
     /* margin-left: 0%; */
     min-height: fit-content;
-    padding-top: 30%;
+    padding-top: 0%;
     padding-bottom: 30%;
-    padding-left: 5%;
+    padding-left: 8%;
 }
 
 .q-links{
-    color:rgb(112, 11, 99);
+    color:rgb(22, 129, 218);
     font-size: 110%;
 }
 
 .q-links:hover{
-    color:rgba(31, 44, 221, 0.808);
+    color:rgba(205, 31, 221, 0.808);
 }
 
 #Profile-badge{
@@ -77,7 +77,12 @@
 }
 
 #Main-body{
-    background-image: repeating-linear-gradient(95deg,rgba(67, 161, 157, 0.452),rgba(150, 143, 45, 0.397),rgba(70, 187, 70, 0.438))
+    background-image: url(images/background_qa4.jpg);
+    background-size: cover;
+    min-height: 100vh;
+    background-repeat: round;
+    color:whitesmoke;
+
 }
 
 #User-logged-in-navbar{
@@ -101,12 +106,12 @@
 }
 
 .top-questions-heading{
-    text-shadow: 0 0 8px rgba(247, 175, 116, 0.918), 0 0 5px rgb(238, 241, 44);
+    text-shadow: 0 0 5px rgba(247, 175, 116, 0.795), 0 0 5px rgba(214, 132, 25, 0.89);
     width: fit-content;
 }
 
 .questions:hover{
-    color:rgba(43, 7, 247, 0.808);
+    color:rgba(205, 31, 221, 0.808);
 }
 
 /* #top-left-heading-space{
