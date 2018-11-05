@@ -136,6 +136,27 @@
 	
 }
 
+.nav-search-bar{
+    padding: 5px 0px 5px 20px;
+    box-sizing: border-box;
+	cursor: pointer;
+	border-radius: 30px;
+    border: 1px solid transparent;
+    width: 80%;
+}
+
+.search-icon{
+    background-repeat: no-repeat;
+    height:35px;
+    width:35px;
+    border-radius: 20%;
+    box-shadow: 7px 7px 7px -5px aqua ;
+    opacity: 0.8;
+    margin-left: 2%;
+    text-align: center;
+}
+
+
 
 @media screen and (max-width: 600px){
     ul.topnav li.right, 
