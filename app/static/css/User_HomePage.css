@@ -61,7 +61,7 @@
 }
 
 .q-links:hover{
-    color:rgba(31, 44, 221, 0.808);
+    color:rgba(6, 237, 253, 0.911);
 }
 
 #Profile-badge{
@@ -106,7 +106,72 @@
     text-align: center;
 } 
 
+.bio-body{
+    width: 100%;
+    overflow-y: auto;
+    resize: none;
+    word-wrap: break-word;
+    /* background-color: rgba(248, 252, 255, 0.85); */
+}
+
+#Top-Questions{
+    margin-top: 40%;
+    text-align: left;
+    border-color: rgba(96, 186, 189, 0.795);
+    border-style: solid;
+    border-width: 2px;  
+    padding: 1%;
+    height: fit-content;
+    width:150%;
+}
+
+
+.tips-questions-heading{
+    text-shadow: 0 0 5px rgba(247, 175, 116, 0.795), 0 0 5px rgba(214, 132, 25, 0.89);
+    width: 100%;
+    text-align: center;
+}
+
+.questions:hover{
+    color:rgba(205, 31, 221, 0.808);
+}
+
+.question-body{
+    width: 100%;
+    overflow-y: auto;
+    resize: none;
+    word-wrap: break-word;
+    background-color: rgba(248, 252, 255, 0.85);
+}
+
+#Tips-Answering{
+    border-radius: 5%;
+    width:40%;
+    height: fit-content;
+    border-color: rgb(255, 72, 0);
+    border-style: double;
+    overflow: hidden;
+    padding: 2%;
+    position: absolute;
+    margin-left: 98%;
+    margin-top:-70%;
+    z-index: 5;
+}
+
+.list-of-featues{
+	list-style-type: lower-greek;
+	text-align: left;
+    color:white;
+    overflow:visible;
+	
+}
+
+
 @media screen and (max-width: 600px){
     ul.topnav li.right, 
     ul.topnav li {float: none;}
+}
+
+@media screen and (max-width: 950px){
+    #Tips-Answering{display: none}
 }

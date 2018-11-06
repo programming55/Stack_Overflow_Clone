@@ -43,17 +43,18 @@
                     <a class="btn btn-outline-warning" id="Help-button" href="#">Help</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="btn btn-outline-success" id="Profile-button" href="#">Profile<span class="badge badge-light" id="Profile-badge">5</span></a>
+                    <a class="btn btn-outline-success" id="Profile-button" href="userpage">Profile<span class="badge badge-light" id="Profile-badge">5</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-outline-danger" id="Logout-button" href="#">Logout</a>
+                    <a class="btn btn-outline-danger" id="Logout-button" href="index" onclick="alert('logout');">Logout</a>
                 </li>
                 </ul>
             </div>
-          </nav>
-          <div class="row">
-                <div class="col-sm-2">
-                   <div class="quick-links">
+        </nav>
+
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="quick-links">
                     <a href="index" class="q-links">Home</a>
                     <br>
                     <a href="about" class="q-links">About</a>
@@ -62,69 +63,104 @@
                     <br>
                     <a href="#" class="q-links">Answering Policy</a>
                     <br>
-                   </div>
                 </div>
-                <div class="column-sm-4">
-                        <!-- <div class="Profile_pic">
-                                <img src="Login_v12/generic_avatar.png" style="width:100px;display: block;
-                                text-align: center" alt="AVATAR">
+            </div>
+            <div class="column-sm-4">
+                <div class="card" style="width: 12rem; background-color: rgba(230, 230, 250, 0.788)">
+                    <img class="card-img-top" src="static/css/images/generic_avatar.png" style="width:100px;display: block;text-align: center;margin-left: 23%" alt="User Avatar">
+                    <ul class="list-group list-group-flush" >
+                        <li class="list-group-item" style="background-color: rgba(66, 77, 168, 0.45)">Reputation: 1</li>
+                        <li class="list-group-item" style="background-color: rgba(66, 77, 168, 0.45)">Name: user_namex</li>
+                        <li class="list-group-item" style="background-color: rgba(66, 77, 168, 0.45)">Member Since: 2018</li>
+                    </ul>
+                        
+                </div>
+            </div>
+            <div class="col-sm-6" id="User-main-pane">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link" id="activity-tab" data-toggle="tab" href="#activity" role="tab" aria-controls="activity" aria-selected="false">Activity</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile-edit" role="tab" aria-controls="profile" aria-selected="false"> Edit Profile & Settings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="askques-tab" data-toggle="tab" href="#ask-ques" role="tab" aria-controls="ask-ques" aria-selected="false"> Ask Question</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="ansques-tab" data-toggle="tab" href="#answer-ques" role="tab" aria-controls="answer-ques" aria-selected="false"> Answer Question</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade" id="activity" role="tabpanel" aria-labelledby="activity-tab">this is activity tab. User's history goes here.
+                    </div>
+                    <div class="tab-pane fade" id="profile-edit" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="edit-profile-container">
+                            <label class="h4">Edit Profile:</label>
+                            <label></label>
+                            <form>
+                                <div class="form-group">
+                                    <label for="Email" style="font-weight:bold">Email:</label>
+                                    <input class="form-control" type="text" placeholder="user_namex@abc.com" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Display-name" style="font-weight:bold">User Name:</label>
+                                    <input type="text" class="form-control" id="Display-name" placeholder="Your Display Name">
+                                </div>
+                                <div class="form-group">
+                                        <label for="change-dp" style="font-weight:bold">Change Profile Picture:</label>
+                                        <input type="file" class="form-control-file" id="change-dp">
+                                </div>
+                                <div class="form-group" style="font-weight:bold">
+                                        <label for="bio-body">Bio:</label>
+                                        <br>
+                                        <textarea class="form=control bio-body" id="bio-body" rows = 8 placeholder="Something about you..."></textarea>
+                                    </div>
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </form>
                         </div>
-                        <div class="stats">
-                            <ul style="list-style-type:none">
-                                    <li>Reputation: 1</li>
-                                    <li>Name: user_namex</li>
-                                    <li>Member Since: 2018</li>
-                                    <li>Last Seen: Today</li>
-                                  </ul> 
-                        </div> -->
-                        <div class="card" style="width: 12rem; background-color: rgba(230, 230, 250, 0.788)">
-                                <img class="card-img-top" src="static/css/images/generic_avatar.png" style="width:100px;display: block;text-align: center;margin-left: 23%" alt="User Avatar">
-                                <ul class="list-group list-group-flush" >
-                                  <li class="list-group-item" style="background-color: rgba(66, 77, 168, 0.45)">Reputation: 1</li>
-                                  <li class="list-group-item" style="background-color: rgba(66, 77, 168, 0.45)">Name: user_namex</li>
-                                  <li class="list-group-item" style="background-color: rgba(66, 77, 168, 0.45)">Member Since: 2018</li>
-                                </ul>
-                                
-                              </div>
-                </div>
-                <div class="col-sm-6" id="User-main-pane">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                
-                                <li class="nav-item">
-                                  <a class="nav-link" id="activity-tab" data-toggle="tab" href="#activity" role="tab" aria-controls="activity" aria-selected="false">Activity</a>
-                                </li>
-                                <li class="nav-item">
-                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile-edit" role="tab" aria-controls="profile" aria-selected="false"> Edit Profile & Settings</a>
-                                      </li>
-                              </ul>
-                              <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade" id="profile-edit" role="tabpanel" aria-labelledby="profile-tab">
-                                    <div class="edit-profile-container">
-                                        <label class="h4">Edit Profile:</label>
-                                        <label></label>
-                                        <form>
-                                                <div class="form-group">
-                                                  <label for="Email">Email:</label>
-                                                  <input class="form-control" type="text" placeholder="user_namex@abc.com" readonly>
-                                                </div>
-                                                <div class="form-group">
-                                                  <label for="Display-name">Display Name</label>
-                                                  <input type="text" class="form-control" id="Display-name" placeholder="Your Display Name">
-                                                </div>
-                                                <div class="form-group">
-                                                        <label for="change-dp">Change Profile Picture</label>
-                                                        <input type="file" class="form-control-file" id="change-dp">
-                                                      </div>
-                                                      <button type="submit" class="btn btn-primary">Save Changes</button>
-                                              </form>
-                                    </div></div>
-                                <div class="tab-pane fade" id="activity" role="tabpanel" aria-labelledby="activity-tab">this is activity tab</div>
-                              </div>
-                              </div>
-                
+                    </div>
+                    <div class="tab-pane fade" id="ask-ques" role="tabpanel" aria-labelledby="answer-ques-tab">   
+                        <div class="container">
+                            <form>
+                                <div class="form-group">
+                                    <label for="question-title" style="font-weight:bold;font-size:large">Title of Question:</label>
+                                    <input type="text" class="form-control" id="question-title" placeholder="Enter the title of your question" style=" background-color: rgba(248, 252, 255, 0.85);" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="question-body" style="font-weight:bold;font-size:large">Body of the question</label>
+                                    <br>
+                                    <textarea class="question-body" id="question-body" rows = 15 placeholder="The details of the questions..." required></textarea>
+                                </div>
+                                <div class="form-group">
+                                        <label for="question-tags" style="font-weight:bold;font-size:large">Tags for Question:</label>
+                                        <input type="text" class="form-control" id="question-tags" placeholder="Enter the tags of your question" style=" background-color: rgba(248, 252, 255, 0.85);" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="text-align: center">Post Question</button>
+                                    
+                            </form>
+                        </div>
+
+                            <div class="panel" id="Tips-Answering">
+                                <h3 class="tips-questions-heading">Tips for asking questions</h3>
+                                <ol class="list-of-featues">
+                                        <li><p>Ask questions clearly providing details. </p></li>
+                                        <li><p>Ask questions which can be answered and not just discussed. </p></li>
+                                        <li><p>Indend code (if any) with 4 spaces </p></li>
+                                        <li><p>Tags can help you categorize your question. </p></li>
+                                        <li><p>Favour using existing popular tags </p></li>
+                                        <li><p>Tags are optional </p></li>
+                                        
+                                    </ol>
+                            </div>
+                                                
+                    </div>
+                                        <div class="tab-pane fade" id="answer-ques" role="tabpanel" aria-labelledby="answer-ques-tab">
+                                            <h1>Answer Some Questions here</h1>
+                                            </div>
+                </div>        
+            </div>
         </div>
-
-
 
     </body>
 </html>

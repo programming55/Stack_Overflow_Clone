@@ -26,7 +26,7 @@
 .list-of-featues{
 	list-style-type: lower-greek;
 	text-align: left;
-	color:white;
+	color:rgb(0, 0, 0);
 	
 }
 
@@ -44,13 +44,14 @@
 }
 
 #main-body{
-	background-image: url("images/background3.jpg");
-	background-size:auto;
+	background-image: url("images/user_back2.jpeg");
+	background-size:contain;
+	background-repeat: none;
 	font-size: 120%;
 }
 
 .disclaimer{
-	color:rgba(247, 73, 87, 0.925);
+	color:white;
 	font-size: small;
 	text-align: center;
 	margin-top: 1%;
@@ -69,11 +70,11 @@
 }
 
 .q-links{
-    color:rgb(22, 129, 218);
+    color:rgb(255, 255, 255);
     font-size: 110%;
 }
 
 .q-links:hover{
-    color:rgba(205, 31, 221, 0.808);
+    color:rgba(0, 255, 76, 0.986);
 }
 

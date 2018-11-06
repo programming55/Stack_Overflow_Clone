@@ -10,15 +10,15 @@ from app import app
 def index():
 	return render_template('index.html')
 
-@app.route('/userpage')
+@app.route('/userpage',methods=['POST', 'GET'])
 def User_HomePage():
 	return render_template('User_HomePage.html')
 
-@app.route('/qanda')
+@app.route('/qanda',methods=['POST'])
 def QandA():
 	return render_template('QandA.html')
 
-@app.route('/askques')
+@app.route('/askques',methods=['POST','GET'])
 def Ask_Question():
 	return render_template('Ask_Ques.html')
 
@@ -26,6 +26,3 @@ def Ask_Question():
 def About():
 	return render_template('About.html')
 
-@app.route('/signup')
-def Signup():
-	return render_template('Signup.html')
