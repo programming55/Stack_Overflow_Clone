@@ -1,1 +1,3 @@
-window.onload = alert("Users' alert");
+function Logout(){
+    
+}

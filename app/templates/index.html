@@ -34,42 +34,44 @@
                             <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
                             <div class="login-form">
                                 <div class="sign-in-htm">
-                                    <div class="group">
-                                        <label for="user" class="label">Username</label>
-                                        <input id="user" type="text" class="input">
-                                    </div>
-                                    <div class="group">
-                                        <label for="pass" class="label">Password</label>
-                                        <input id="pass" type="password" class="input" data-type="password">
-                                    </div>
-                                    <div class="group">
-                                        <input id="check" type="checkbox" class="check" checked>
-                                        <label for="check"><span class="icon"></span> Keep me Signed in</label>
-                                    </div>
-                                    <div class="group">
-                                        <input type="submit" class="button" value="Sign In">
-                                    </div>
-                                    <div class="hr"></div>
-                                    <div class="foot-lnk">
-                                        <a href="#forgot" class="forgot-pass">Forgot Password?</a>
-                                    </div>
+                                    <form id="signup-form" action="/login" method="post">
+                                        <div class="group">
+                                            <label for="user" class="label">Username</label>
+                                            <input id="user" name="user" type="text" class="input">
+                                        </div>
+                                        <div class="group">
+                                            <label for="pass" class="label">Password</label>
+                                            <input id="pass" name="pass" type="password" class="input" data-type="password">
+                                        </div>
+                                        <div class="group">
+                                            <input id="check" type="checkbox" class="check" checked>
+                                            <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                                        </div>
+                                        <div class="group">
+                                            <input type="submit" class="button" value="Sign In">
+                                        </div>
+                                        <div class="hr"></div>
+                                        <div class="foot-lnk">
+                                            <a href="#forgot" class="forgot-pass">Forgot Password?</a>
+                                        </div>
+                                    </form>
                                 </div>
                                 <div class="sign-up-htm">
                                     <form id="signup-form" action="/userpage" onsubmit="return Validate_SignUp()" method="post">
                                     <div class="group">
-                                        <label for="username" class="label">Username <span id="user_name-tooltip"></span></label>
-                                        <input id="username" type="text" class="input" required onblur="Validate_Username()">
+                                        <label for="username" class="label">Username</label><span id="user_name-tooltip"></span>
+                                        <input id="username" name="username" type="text" class="input" required onblur="Validate_Username()">
                                     </div>
                                     <div class="group">
-                                            <label for="email" class="label">Email Address <span id="email-tooltip"></span></label>
-                                            <input id="email" type="email" class="input" required onblur="Validate_Email()">
+                                            <label for="email" class="label">Email Address</label><span id="email-tooltip"></span>
+                                            <input id="email" name="email" type="email" class="input" required onblur="Validate_Email()">
                                         </div>
                                     <div class="group">
-                                        <label for="newpass" class="label">Password <span id="password-tooltip"></span></label>
-                                        <input id="newpass" type="password" class="input" data-type="password" required onblur="Validate_Password1()">
+                                        <label for="newpass" class="label">Password</label><span id="password-tooltip"></span>
+                                        <input id="newpass" name="newpass" type="password" class="input" data-type="password" required onblur="Validate_Password1()">
                                     </div>
                                     <div class="group">
-                                        <label for="newpassr" class="label">Repeat Password <span id="password-repeat-tooltip"></span></label>
+                                        <label for="newpassr" class="label">Repeat Password</label><span id="password-repeat-tooltip"></span>
                                         <input id="newpassr" type="password" class="input" data-type="password" required onblur="Validate_Password2()">
                                     </div>
                                     

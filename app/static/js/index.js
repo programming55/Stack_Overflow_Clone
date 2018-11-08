@@ -35,7 +35,7 @@ function Validate_Username(){
     var username_box = document.getElementById('username');
     var username = document.getElementById('username').value;
     //check if username exists in databse if it does show message in tooltip that user name exi
-    username_box.style.border = "1px solid green";
+    username_box.style.border = "2px solid #04d812";
     return true;
 }
 
@@ -48,14 +48,14 @@ function Validate_Email(){
     var email_res2 = email_pattern2.test(email);
     var email_tooltip = document.getElementById('email-tooltip');
     if(email_res1 || email_res2){
-        email_box.style.border = "1px solid green";
+        email_box.style.border = "2px solid #04d812";
         email_tooltip.innerHTML = "";
         return true;
     }
     else{
             email_box.style.border =  "1px solid red";
             email_tooltip.innerHTML = "Incorrect Email Format";
-            email_tooltip.style.color = "white";
+            email_tooltip.style.color = "orange";
             email_tooltip.style.textDecoration = "underline";
             email_tooltip.style.textDecorationColor="red";
             email_tooltip.style.fontWeight = "bold";
@@ -71,7 +71,7 @@ function Validate_Password1(){
     if(password.length<8){
         password_box.style.border =  "1px solid red";
         password_tooltip.innerHTML = "Password must be atleast 8 characters";
-        password_tooltip.style.color = "white";
+        password_tooltip.style.color = "orange";
         password_tooltip.style.textDecoration = "underline";
         password_tooltip.style.textDecorationColor="red";
         password_tooltip.style.fontWeight = "bold";
@@ -80,7 +80,7 @@ function Validate_Password1(){
         return false;
     }
     else{
-        password_box.style.border =  "1px solid green";
+        password_box.style.border =  "2px solid #04d812";
         password_tooltip.innerHTML = "";
         return true;
     }
@@ -94,7 +94,7 @@ function Validate_Password2(){
     if(password!=pass_initial){
         password_box.style.border =  "1px solid red";
         password_tooltip.innerHTML = "Passwords don't match!";
-        password_tooltip.style.color = "white";
+        password_tooltip.style.color = "orange";
         password_tooltip.style.textDecoration = "underline";
         password_tooltip.style.textDecorationColor="red";
         password_tooltip.style.fontWeight = "bold";
@@ -104,7 +104,7 @@ function Validate_Password2(){
         return false;
     }
     else{
-        password_box.style.border =  "1px solid green";
+        password_box.style.border =  "2px solid #04d812";
         password_tooltip.innerHTML = "";
         return true;
         

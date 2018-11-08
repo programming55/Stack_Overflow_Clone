@@ -1,0 +1,72 @@
+#main-heading{
+	background-color:rgba(0, 114, 57, 0.582);
+	position: -webkit-sticky;
+  	position: sticky;
+	top: 0;
+	z-index: 2;
+    border:3px solid;
+    color:orangered;
+    font-weight: bold;
+	box-shadow: 7px 7px 5px -5px darkmagenta inset, 10px 10px 10px -7px crimson ;	
+
+	/* padding: 10px; */
+	
+}
+
+
+
+.list-of-featues{
+	list-style-type: lower-greek;
+	text-align: left;
+	color:rgb(0, 0, 0);
+	
+}
+
+.features-heading{
+	font-weight: bold;
+	font-style: italic;
+	font-size:140%;
+}
+
+.text-body{
+	text-align: left;
+	height: 100vh;
+	width: 100vw;
+	z-index: 3;
+}
+
+#main-body{
+	background-image: url("images/user_back2.jpeg");
+	background-size:contain;
+	background-repeat: none;
+	font-size: 120%;
+}
+
+.disclaimer{
+	color:white;
+	font-size: small;
+	text-align: center;
+	margin-top: 1%;
+}
+
+.quick-links{
+    /* background-image: repeating-linear-gradient(95deg,rgba(47, 47, 187, 0.541),rgba(131, 91, 151, 0.329),rgba(136, 48, 136, 0.767)) ; */
+    /* background-repeat: repeat; */
+    width:fit-content;
+    text-align: left;
+    /* margin-left: 0%; */
+    min-height: fit-content;
+    /* padding-top: 30%;
+    padding-bottom: 30%; */
+    padding-left: 8%;
+}
+
+.q-links{
+    color:rgb(255, 255, 255);
+    font-size: 110%;
+}
+
+.q-links:hover{
+    color:rgba(0, 255, 76, 0.986);
+}
+

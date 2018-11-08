@@ -3,19 +3,16 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>User Home Screen</title>
+        <title>Answer Questions</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/QandA.css') }}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="{{url_for('static', filename='js/User_HomePage.js')}}"></script>
         <link rel="icon" type="image/png" href="{{ url_for('static', filename='css/images/icons/favicon.ico') }}"/>
-
-
-
-            
+        <script type="text/javascript" src="{{url_for('static', filename='js/QandA.js')}}"></script>
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='css/images/icons/favicon.ico') }}"/>
     </head>
     <body id="Main-body">
         <nav class="navbar sticky-top navbar-expand-sm bg-dark" id="User-logged-in-navbar">
@@ -86,8 +83,8 @@
                     <div class="col-sm-2" id="top-left-heading-space">
                     </div>
                     <div class="col-sm-6" style="text-align:left;">
-                            <h2>Question Heading </h2>
-                            <hr style="width:200%; transform:translatex(-120px)">
+                            <h2>Question Title </h2>
+                            <hr style="width:200%;background-color: rgb(9, 255, 0); transform:translatex(-120px)">
                     </div>
                     <div class="col-sm-4" style="text-align:right;">
                             <button class="btn btn-primary" id="Ask-question">Ask Question</button>
@@ -110,11 +107,176 @@
                    </div>
                 </div>
                 <div class="col-sm-7" id="User-main-pane">
-                    <div class="container">
-                        <label>The first question asked will be displayed here</label>
+                    <div class="container ques-body" id="ques-body" name="ques-body">
+                        <p id="ques">
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                            The Question goes here:
+                        </p>
                     </div>
-                    
+                    <div class = "container ques-user-info">
+                            <p id="user-info">
+                                User Info Goes here
+                            </p>
+                            <hr style="background-color: rgb(0, 255, 255);">
+                    </div>
+                    <div class = "container ques-comment">
+                            <p id="comments">
+                                Comments go here
+                            </p>
+                            <button class="btn btn-outline-success" id="add-comments" style="margin-top:-1%;" data-toggle="modal" data-target="#add-comment-modal"><span><img src="static/css/images/add_button.png" width="20px"></span></button>
+
+                            <div class="modal fade" id="add-comment-modal" tabindex="-1" role="dialog" aria-labelledby="add-comment-modal" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="add-comment-modal">Add Comments...</h5>
+                                            <!-- <span id="user-comm-check"></span> -->
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <form action="#"> 
+                                            <!-- onsubmit=" return Validate_Comments()" -->
+                                            <div class="modal-body">
+                                                <textarea class="comment-body" id="comment-body" cols = 47 rows = 5 placeholder="Write your comment here..." required></textarea>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <input type="submit" class="btn btn-primary" value="Post Comment">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <hr style="background-color: rgb(0, 255, 255);">
+                    <h4>x Answers:</h4>
+                    <div class="ques-answers">
+                        <div id="user-repo" style="float:left;">
+                            <button class="btn btn-outline-success" id="repo-up"><span><img src="static/css/images/up_arrow.png" width="30px"></span></button><br>
+                            <label><h3 style="text-align:center;margin-left:30px;margin-bottom: 1px">4</h3></label><br>
+                            <button class="btn btn-outline-danger" id="repo-down"><span><img src="static/css/images/down_arrow.png" width="30px"></span></button>
+                            <br>
+                            <button class="btn btn-outline-success" id="accept-ans" onclick="Accept_Answer()"><span id ="answer-accepted"><img src="static/css/images/accepted_ans.png" width=30px id="accepted-image"></span><span id="accept-but-text">Accept</span></button>
+                        </div>
+                        <p id="ans">
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                            The Answer goes here:
+                        </p>
+                    </div>
+                    <div class = "container ans-user-info">
+                            <p id="ans-user-info">
+                                User Info Goes here
+                            </p>
+                            <hr style="background-color: rgb(0, 255, 255);">
+                    </div>
+                    <div class = "container ans-comment">
+                            <p id="ans-comments">
+                                Comments go here
+                            </p>
+                            <button class="btn btn-outline-success" id="add-ans-comments" style="margin-top:-1%;" data-toggle="modal" data-target="#add-comment-modal"><span><img src="static/css/images/add_button.png" width="20px"></span></button>
+                    </div>
+                    <hr style="background-color: rgb(0, 255, 255);">
+                    <h4>Your Answer:</h4> <span id="post-ans-msg"></span> 
+                    <form onsubmit="return Post_Answer_Check()" action="#">
+                        <div class="answer-ques">
+                                <textarea class="user-ans" id="user-ans"rows = 10 placeholder="Write your answer here..."></textarea>
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="Post Answer" style="margin-top:1%">
+                    </form>
+                    <hr style="background-color: rgb(255, 0, 0);">
                 </div>
+
                 <div class="column-sm-3" >
                     <div class="panel" id="Top-Questions">
                         <h3 class="top-questions-heading">Top Questions</h3>
