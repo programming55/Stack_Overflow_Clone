@@ -1,3 +1,63 @@
+.logo-image{
+    background:mistyrose;
+    width:60px;
+}
+
+
+
+
+.nav-items{
+    float:right;
+}
+
+.expand-nav-button{
+    width:30px;
+    border-radius: 15%;
+}
+
+
+#Logout-button{
+    /* margin-left:20px;
+    margin-right:20px;  */
+    margin-bottom: 10px;  
+}
+
+#Profile-button{
+    /* margin-left:20px; */
+    margin-right:10px;
+    margin-bottom: 10px; 
+}
+
+#Help-button{
+    /* margin-left:20px; */
+    margin-right:10px;
+    margin-bottom: 10px; 
+}
+
+.nav-search-bar{
+    padding: 5px 0px 5px 20px;
+    box-sizing: border-box;
+	cursor: pointer;
+	border-radius: 30px;
+    border: 1px solid transparent;
+    width: 80%;
+    border-color: chartreuse;
+    border-width: 2px;
+}
+
+.search-icon{
+    background-repeat: no-repeat;
+    height:35px;
+    width:35px;
+    border-radius: 20%;
+    box-shadow: 7px 7px 7px -5px aqua ;
+    opacity: 0.8;
+    margin-left: 2%;
+    text-align: center;
+}
+
+
+
 #Main_Title{
     text-align: center;
     margin-top: 2%;
@@ -47,6 +107,25 @@
     transition: max-height 0.2s ease-out;
     font-size: 110%;
     width:80%;
+}
+
+.panel-session {
+    padding: 0 18px;
+	background-color: rgba(87, 108, 177, 0.322);
+	width: 100%;
+    /* max-height: 0; */
+    /* overflow: hidden; */
+    /* transition: max-height 0.2s ease-out; */
+    font-size: 150%;
+    /* width:80%; */
+}
+
+#panel-session-but1{
+	width: 100%;
+	font-weight: bold;
+	font-size: 150%;
+	background-color: rgba(46, 238, 222, 0.952);
+	color: black;
 }
 
 .questions{

@@ -15,69 +15,71 @@
         <link rel="icon" type="image/png" href="{{ url_for('static', filename='css/images/icons/favicon.ico') }}"/>
     </head>
     <body id="Main-body">
-        <nav class="navbar sticky-top navbar-expand-sm bg-dark" id="User-logged-in-navbar">
-            <a class="navbar-brand" href="https://www.iiit.ac.in/">
-                <img src="static/css/images/iiith_logo.png" alt="Logo" class="logo-image">
-              </a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span><img src = "static/css/images/expand_navbar.png" class = "expand-nav-button"></span>
-                  </button>
-                  <label class="nav-item mr-auto">
-                        <label class="logo-label">IIITH Stack Overflow</label>
-                      </label>
-            <div class="collapse navbar-collapse" id="navbarToggler">
-                <ul class="navbar-nav ml-auto mt-2">
+        {%if logged_in %}
+            <nav class="navbar sticky-top navbar-expand-sm bg-dark" id="User-logged-in-navbar">
+                <a class="navbar-brand" href="https://www.iiit.ac.in/">
+                    <img src="static/css/images/iiith_logo.png" alt="Logo" class="logo-image">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span><img src = "static/css/images/expand_navbar.png" class = "expand-nav-button"></span>
+                    </button>
+                    <label class="nav-item mr-auto">
+                            <label class="logo-label">IIITH Stack Overflow</label>
+                        </label>
+                <div class="collapse navbar-collapse" id="navbarToggler">
+                    <ul class="navbar-nav ml-auto mt-2">
+                            <li class="nav-item">
+                                    <form class="form-inline">
+                                        <input type="search" placeholder="Search for Answers..." class="nav-search-bar">
+                                        <button class = "btn btn-outline-primary search-icon" type="submit"><span><img src="static/css/images/search_icon.png" width="20px"></span></button>
+                                    
+                                </li>
+                            <li class="nav-item">
+                                    <label class="user-label">Welcome User: user_namex</label>
+                            </li>
                         <li class="nav-item">
-                                <form class="form-inline">
-                                    <input type="search" placeholder="Search for Answers..." class="nav-search-bar">
-                                    <button class = "btn btn-outline-primary search-icon" type="submit"><span><img src="static/css/images/search_icon.png" width="20px"></span></button>
-                                </form>
+                            <a class="btn btn-outline-warning" id="Help-button" href="#">Help</a>
                         </li>
-                    <li class="nav-item">
-                            <label class="user-label">Welcome User: user_namex</label>
+                        <li class="nav-item ">
+                            <a class="btn btn-outline-success" id="Profile-button" href="userpage">Profile<span class="badge badge-light" id="Profile-badge">5</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-danger" id="Logout-button" href="logout">Logout</a>
+                        </form>
                     </li>
-                <li class="nav-item">
-                    <a class="btn btn-outline-warning" id="Help-button" href="#">Help</a>
-                </li>
-                <li class="nav-item ">
-                    <a class="btn btn-outline-success" id="Profile-button" href="userpage">Profile<span class="badge badge-light" id="Profile-badge">5</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="btn btn-outline-danger" id="Logout-button" href="#">Logout</a>
-                </li>
-                </ul>
-            </div>
-          </nav>
-          <nav class="navbar sticky-top navbar-expand-sm bg-dark" id="User-logged-out-navbar">
-            <a class="navbar-brand" href="https://www.iiit.ac.in/">
-                <img src="static/css/images/iiith_logo.png" alt="Logo" class="logo-image">
-              </a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span><img src = "static/css/images/expand_navbar.png" class = "expand-nav-button"></span>
-                  </button>
-                  <label class="nav-item mr-auto">
-                        <label class="logo-label">IIITH Stack Overflow</label>
-                      </label>
-            <div class="collapse navbar-collapse" id="navbarToggler">
-                <ul class="navbar-nav ml-auto mt-2">
-                        <li class="nav-item">
-                                <form class="form-inline">
-                                    <input type="search" placeholder="Search for Answers..." class="nav-search-bar">
-                                    <button class = "btn btn-outline-primary search-icon" type="submit"><span><img src="static/css/images/search_icon.png" width="20px"></span></button>
-                                </form>
-                        </li>
-                <li class="nav-item">
-                    <a class="btn btn-outline-warning" id="Help-button" href="#">Help</a>
-                </li>
-                <li class="nav-item ">
-                    <a class="btn btn-outline-success" id="Profile-button" href="#">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="btn btn-outline-primary" id="Logout-button" href="index">Sign Up</a>
-                </li>
-                </ul>
-            </div>
-          </nav>
+                    </ul>
+                </div>
+            </nav>
+
+        {%else%}
+            <nav class="navbar sticky-top navbar-expand-sm bg-dark" id="User-logged-out-navbar">
+                <a class="navbar-brand" href="https://www.iiit.ac.in/">
+                    <img src="static/css/images/iiith_logo.png" alt="Logo" class="logo-image">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span><img src = "static/css/images/expand_navbar.png" class = "expand-nav-button"></span>
+                    </button>
+                    <label class="nav-item mr-auto">
+                            <label class="logo-label">IIITH Stack Overflow</label>
+                        </label>
+                <div class="collapse navbar-collapse" id="navbarToggler">
+                    <ul class="navbar-nav ml-auto mt-2">
+                            <li class="nav-item">
+                                    <form class="form-inline">
+                                        <input type="search" placeholder="Search for Answers..." class="nav-search-bar">
+                                        <button class = "btn btn-outline-primary search-icon" type="submit"><span><img src="static/css/images/search_icon.png" width="20px"></span></button>
+                                    </form>
+                            </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-warning" id="Help-button" href="#">Help</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-primary" id="Logout-button" href="index">Sign Up/Login</a>
+                    </li>
+                    </ul>
+                </div>
+            </nav>
+        {%endif%}
           <div class="container">
                 <div class="row" style="margin-top:3%;">
                     <div class="col-sm-2" id="top-left-heading-space">

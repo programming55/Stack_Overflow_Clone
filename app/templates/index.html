@@ -10,9 +10,67 @@
 	 <script type="text/javascript" src="{{url_for('static', filename='js/index.js')}}"></script>
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
      <link rel="icon" type="image/png" href="{{ url_for('static', filename='css/images/icons/favicon.ico') }}"/>
-     
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 </head>
 <body id="Main_Body">
+
+
+        {%if logged_in %}
+        <nav class="navbar sticky-top navbar-expand-sm" style="background-color:rgba(126, 87, 177, 0.479);" id="User-logged-in-navbar">
+            <a class="navbar-brand" href="https://www.iiit.ac.in/">
+                <img src="static/css/images/iiith_logo.png" alt="Logo" class="logo-image">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span><img src = "static/css/images/expand_navbar.png" class = "expand-nav-button"></span>
+                </button>
+                
+            <div class="collapse navbar-collapse" id="navbarToggler">
+                <ul class="navbar-nav ml-auto mt-2">
+                        <li class="nav-item">
+                                <form class="form-inline" action="qanda" name="search">
+                                    <input type="search" placeholder="Search for Answers..." class="nav-search-bar">
+                                    <button class = "btn btn-outline-primary search-icon" type="submit"><span><img src="static/css/images/search_icon.png" width="20px"></span></button>
+                                </form>
+                                
+                            </li>
+                        <li class="nav-item ">
+                                <form name="profile" class="form-inline" action="userpage" method="POST">
+                                    <button class="btn btn-outline-success" type="submit" id="Profile-button">Profile<span class="badge badge-light" id="Profile-badge">5</span></button>
+                                    <!-- <button href="/userpage" class=" btn btn-outline-primar q-links" type="link">Profile </button> -->
+                                </form>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-danger" id="Logout-button" href="logout">Logout</a>
+                </li>
+                </ul>
+            </div>
+        </nav>
+
+    {%else%}
+        <nav class="navbar sticky-top navbar-expand-sm" style="background-color:rgba(126, 87, 177, 0.329);" id="User-logged-out-navbar">
+            <a class="navbar-brand" href="https://www.iiit.ac.in/">
+                <img src="static/css/images/iiith_logo.png" alt="Logo" class="logo-image">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span><img src = "static/css/images/expand_navbar.png" class = "expand-nav-button"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarToggler">
+                <ul class="navbar-nav ml-auto mr-auto mt-2">
+                        <li class="nav-item">
+                                <form class="form-inline">
+                                    <input type="search" placeholder="Search for Answers..." class="nav-search-bar">
+                                    <button class = "btn btn-outline-primary search-icon" type="submit"><span><img src="static/css/images/search_icon.png" width="20px"></span></button>
+                                </form>
+                        </li>
+                </ul>
+            </div>
+        </nav>
+    {%endif%}
+
+
+
     <div class="main-heading" id="Main_Title">
         <h1 class="display-3">IIIT Stack Overflow</h1>
     </div>
@@ -25,64 +83,138 @@
             <br>
             <a href="#" class="q-links">Answering Policy</a>
             <br>
+            
            </div>
-        </div>
+    </div>
+    {%if logged_in%}    
         <div class="col-sm-6" style="text-align:center">
-                <div class="login-wrap">
-                        <div class="login-html">
-                            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
-                            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-                            <div class="login-form">
-                                <div class="sign-in-htm">
-                                    <form id="signup-form" action="/login" method="post">
-                                        <div class="group">
-                                            <label for="user" class="label">Username</label>
-                                            <input id="user" name="user" type="text" class="input">
-                                        </div>
-                                        <div class="group">
-                                            <label for="pass" class="label">Password</label>
-                                            <input id="pass" name="pass" type="password" class="input" data-type="password">
-                                        </div>
-                                        <div class="group">
-                                            <input id="check" type="checkbox" class="check" checked>
-                                            <label for="check"><span class="icon"></span> Keep me Signed in</label>
-                                        </div>
-                                        <div class="group">
-                                            <input type="submit" class="button" value="Sign In">
-                                        </div>
-                                        <div class="hr"></div>
-                                        <div class="foot-lnk">
-                                            <a href="#forgot" class="forgot-pass">Forgot Password?</a>
-                                        </div>
-                                    </form>
+            <button class="btn btn-outline-success" id="panel-session-but1" >Top 10 Questions</button>
+            <div class="panel-session">
+            <a href="#" class="questions">Question1 is here</a>
+            <br>
+            <a href="#" class="questions">Question2 is here</a>
+            <br>
+            <a href="#" class="questions">Question3 is here</a>
+            <br>
+            <a href="#" class="questions">Question4 is here</a>
+            <br>
+            <a href="#" class="questions">Question5 is here</a>
+            <br>
+            <a href="#" class="questions">Question6 is here</a>
+            <br>
+            <a href="#" class="questions">Question7 is here</a>
+            <br>
+            <a href="#" class="questions">Question8 is here</a>
+            <br>
+            <a href="#" class="questions">Question9 is here</a>
+            <br>
+            <a href="#" class="questions">Question10 is here</a>
+            </div>
+        </div>
+        <div class = "col-sm-3">
+            <button class="accordion" id="panel-but2" onclick="panel2()">CSE</button>
+            <div class="panel">
+                <a href="#" class="questions">Question1 is here</a>
+                <br>
+                <a href="#" class="questions">Question2 is here</a>
+                <br>
+                <a href="#" class="questions">Question3 is here</a>
+                <br>
+                <a href="#" class="questions">Question4 is here</a>
+                <br>
+                <a href="#" class="questions">Question5 is here</a>
+                <br>
+                <a href="#" class="questions">Question6 is here</a>
+                <br>
+                <a href="#" class="questions">Question7 is here</a>
+                <br>
+                <a href="#" class="questions">Question8 is here</a>
+                <br>
+                <a href="#" class="questions">Question9 is here</a>
+                <br>
+                <a href="#" class="questions">Question10 is here</a>
+            </div>
+
+            <button class="accordion" id="panel-but3" onclick="panel3()">Campus Life</button>
+            <div class="panel">
+                <a href="#" class="questions">Question1 is here</a>
+                <br>
+                <a href="#" class="questions">Question2 is here</a>
+                <br>
+                <a href="#" class="questions">Question3 is here</a>
+                <br>
+                <a href="#" class="questions">Question4 is here</a>
+                <br>
+                <a href="#" class="questions">Question5 is here</a>
+                <br>
+                <a href="#" class="questions">Question6 is here</a>
+                <br>
+                <a href="#" class="questions">Question7 is here</a>
+                <br>
+                <a href="#" class="questions">Question8 is here</a>
+                <br>
+                <a href="#" class="questions">Question9 is here</a>
+                <br>
+                <a href="#" class="questions">Question10 is here</a>
+            </div>
+        </div>
+    {%else%}
+    <div class="col-sm-6" style="text-align:center">
+        <div class="login-wrap">
+                <div class="login-html">
+                    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+                    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+                    <div class="login-form">
+                        <div class="sign-in-htm">
+                            <form id="signup-form" action="/login" method="post">
+                                <div class="group">
+                                    <label for="user" class="label">Username</label>
+                                    <input id="user" name="user" type="text" class="input">
                                 </div>
-                                <div class="sign-up-htm">
-                                    <form id="signup-form" action="/userpage" onsubmit="return Validate_SignUp()" method="post">
-                                    <div class="group">
-                                        <label for="username" class="label">Username</label><span id="user_name-tooltip"></span>
-                                        <input id="username" name="username" type="text" class="input" required onblur="Validate_Username()">
-                                    </div>
-                                    <div class="group">
-                                            <label for="email" class="label">Email Address</label><span id="email-tooltip"></span>
-                                            <input id="email" name="email" type="email" class="input" required onblur="Validate_Email()">
-                                        </div>
-                                    <div class="group">
-                                        <label for="newpass" class="label">Password</label><span id="password-tooltip"></span>
-                                        <input id="newpass" name="newpass" type="password" class="input" data-type="password" required onblur="Validate_Password1()">
-                                    </div>
-                                    <div class="group">
-                                        <label for="newpassr" class="label">Repeat Password</label><span id="password-repeat-tooltip"></span>
-                                        <input id="newpassr" type="password" class="input" data-type="password" required onblur="Validate_Password2()">
-                                    </div>
-                                    
-                                    <div class="group">
-                                        <input type="submit" class="button" id="sign-up" value="Sign Up">
-                                    </div>
-                                </form>
+                                <div class="group">
+                                    <label for="pass" class="label">Password</label>
+                                    <input id="pass" name="pass" type="password" class="input" data-type="password">
                                 </div>
+                                <div class="group">
+                                    <input id="check" type="checkbox" class="check" checked>
+                                    <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                                </div>
+                                <div class="group">
+                                    <input type="submit" class="button" value="Sign In">
+                                </div>
+                                <div class="hr"></div>
+                                <div class="foot-lnk">
+                                    <a href="#forgot" class="forgot-pass">Forgot Password?</a>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="sign-up-htm">
+                            <form id="signup-form" action="/userpage" onsubmit="return Validate_SignUp()" method="post">
+                            <div class="group">
+                                <label for="username" class="label">Username</label><span id="user_name-tooltip"></span>
+                                <input id="username" name="username" type="text" class="input" required onblur="Validate_Username()">
                             </div>
+                            <div class="group">
+                                    <label for="email" class="label">Email Address</label><span id="email-tooltip"></span>
+                                    <input id="email" name="email" type="email" class="input" required onblur="Validate_Email()">
+                                </div>
+                            <div class="group">
+                                <label for="newpass" class="label">Password</label><span id="password-tooltip"></span>
+                                <input id="newpass" name="newpass" type="password" class="input" data-type="password" required onblur="Validate_Password1()">
+                            </div>
+                            <div class="group">
+                                <label for="newpassr" class="label">Repeat Password</label><span id="password-repeat-tooltip"></span>
+                                <input id="newpassr" type="password" class="input" data-type="password" required onblur="Validate_Password2()">
+                            </div>
+                            
+                            <div class="group">
+                                <input type="submit" class="button" id="sign-up" value="Sign Up">
+                            </div>
+                        </form>
                         </div>
                     </div>
+                </div>
+            </div>
         </div>
         <div class = "col-sm-3">
             <button class="accordion" id="panel-but1" onclick="panel1()">Top 10 Questions</button>
@@ -155,6 +287,7 @@
             </div>
         </div>
     </div>
+    {%endif%}
 </body>
 </html>
 

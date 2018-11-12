@@ -34,7 +34,7 @@ function panel3(){
 function Validate_Username(){
     var username_box = document.getElementById('username');
     var username = document.getElementById('username').value;
-    //check if username exists in databse if it does show message in tooltip that user name exi
+    //check if username exists in databse if it does show message in tooltip that user name exists
     username_box.style.border = "2px solid #04d812";
     return true;
 }

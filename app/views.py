@@ -14,7 +14,12 @@ from sqlalchemy import and_
 @app.route('/')
 @app.route('/index')
 def index():
-	return render_template('index.html')
+	if 'user' in session:
+		return render_template('index.html', logged_in = True)
+	else:
+		return render_template('index.html', logged_in = False)
+
+
 
 @app.route('/login', methods=['POST', 'GET'])
 def User_Login():
@@ -23,20 +28,33 @@ def User_Login():
     user  = User.query.filter(and_(User.username == userID, User.password == psswd)).first()
     if user:
         flash('Login successful', 'success')
-        return render_template('User_HomePage.html')
-    return "Error Logging You in!!"
+        session['user'] = userID
+        return render_template('User_HomePage.html', username=session['user'], logged_in = True)
+    return render_template("index.html", logged_in = False)
+
+@app.route('/logout', methods=['POST', 'GET'])
+def Logout():
+	if 'user' in session:
+		name = session.pop('user')
+		return render_template("index.html", logged_in = False)
+
+	else:
+		return render_template("index.html")
 
 @app.route('/userpage',methods=['POST'])
 def User_HomePage():
-    user = User(username=request.form["username"],  password=request.form['newpass'], email=request.form["email"],)
-    db.session.add(user)
-    db.session.commit()
-    flash('Your account has been created! You are now able to log in', 'success')
-    return render_template('User_HomePage.html')
+    # user = User(username=request.form["username"],  password=request.form['newpass'], email=request.form["email"],)
+    # db.session.add(user)
+    # db.session.commit()
+    # flash('Your account has been created! You are now able to log in', 'success')
+    return render_template('User_HomePage.html', logged_in=True, username=session['user'])
 
 @app.route('/qanda',methods=['POST', 'GET'])
 def QandA():
-	return render_template('QandA.html')
+    if 'user' in session:
+	    return render_template('QandA.html', logged_in = True, username = session['user'])
+    else:
+	    return render_template('QandA.html', logged_in = False)
 
 @app.route('/askques',methods=['POST','GET'])
 def Ask_Question():
@@ -49,5 +67,8 @@ def About():
 @app.route('/coc')
 def Answering_Policy():
 	return render_template('Answering_Policy.html')
+
+
+
 
 
