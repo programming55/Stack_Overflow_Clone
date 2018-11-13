@@ -64,7 +64,7 @@
                     <br>
                     <a href="#" class="q-links">Support</a>
                     <br>
-                    <a href="#" class="q-links">Answering Policy</a>
+                    <a href="coc" class="q-links">Answering Policy</a>
                     <br>
                 </div>
             </div>
@@ -72,9 +72,9 @@
                 <div class="card" style="width: 12rem; background-color: rgba(230, 230, 250, 0.788)">
                     <img class="card-img-top" src="static/css/images/generic_avatar.png" style="width:100px;display: block;text-align: center;margin-left: 23%" alt="User Avatar">
                     <ul class="list-group list-group-flush" >
-                        <li class="list-group-item" style="background-color: rgba(66, 77, 168, 0.45)">Reputation: 1</li>
-                        <li class="list-group-item" style="background-color: rgba(66, 77, 168, 0.45)">Name: user_namex</li>
-                        <li class="list-group-item" style="background-color: rgba(66, 77, 168, 0.45)">Member Since: 2018</li>
+                        <li class="list-group-item" style="background-color: rgba(66, 77, 168, 0.45)">Reputation: {{userinfo.reputation}}</li>
+                        <li class="list-group-item" style="background-color: rgba(66, 77, 168, 0.45)">Name: {{userinfo.username}}</li>
+                        <li class="list-group-item" style="background-color: rgba(66, 77, 168, 0.45)">Member Since: {{userinfo.joined}}</li>
                     </ul>
                         
                 </div>
@@ -103,21 +103,21 @@
                             <label></label>
                             <div class="form-group">
                                 <label for="Email" style="font-weight:bold">Email:</label>
-                                <input class="form-control" type="text" placeholder="user_namex@abc.com" readonly>
+                                <input class="form-control" type="text" placeholder={{userinfo.email}} readonly>
                             </div>
-                            <form action="/updateprofile">
+                            <form action="/updateprofile" method="POST">
                                 <div class="form-group">
-                                    <label for="Display-name" style="font-weight:bold">User Name:</label>
-                                    <input type="text" class="form-control" id="Display-name" placeholder="Your Display Name" required>
+                                    <label for="Display-name" style="font-weight:bold">Display Name:</label>
+                                    <input type="text" class="form-control" id="Display-name" name="display_name" placeholder="Your Display Name" required>
                                 </div>
                                 <div class="form-group">
                                         <label for="change-dp" style="font-weight:bold">Change Profile Picture:</label>
-                                        <input type="file" class="form-control-file" id="change-dp">
+                                        <input type="file" class="form-control-file" id="change-dp" name="change_dp">
                                 </div>
                                 <div class="form-group" style="font-weight:bold">
                                         <label for="bio-body">Bio:</label>
                                         <br>
-                                        <textarea class="form=control bio-body" id="bio-body" rows = 8 placeholder="Something about you..."></textarea>
+                                        <textarea class="form=control bio-body" name="bio" id="bio-body" rows = 8 placeholder={{userinfo.bio}}></textarea>
                                     </div>
                                 <button type="submit" class="btn btn-primary">Save Changes</button>
                             </form>
@@ -125,40 +125,50 @@
                     </div>
                     <div class="tab-pane fade" id="ask-ques" role="tabpanel" aria-labelledby="answer-ques-tab">   
                         <div class="container">
-                            <form>
+                            <form action="/askQuestion" method="POST">
                                 <div class="form-group">
                                     <label for="question-title" style="font-weight:bold;font-size:large">Title of Question:</label>
-                                    <input type="text" class="form-control" id="question-title" placeholder="Enter the title of your question" style=" background-color: rgba(248, 252, 255, 0.85);" required>
+                                    <input type="text" class="form-control" name="question_title" id="question-title" placeholder="Enter the title of your question" style=" background-color: rgba(248, 252, 255, 0.85);" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="question-body" style="font-weight:bold;font-size:large">Body of the question</label>
                                     <br>
-                                    <textarea class="question-body" id="question-body" rows = 15 placeholder="The details of the questions..." required></textarea>
+                                    <textarea class="question-body" name="question_body" id="question-body" rows = 15 placeholder="The details of the questions..." required></textarea>
                                 </div>
                                 <div class="form-group">
                                         <label for="question-tags" style="font-weight:bold;font-size:large">Tags for Question:</label>
-                                        <input type="text" class="form-control" id="question-tags" placeholder="Enter the tags of your question" style=" background-color: rgba(248, 252, 255, 0.85);" required>
+                                        <input type="text" class="form-control" name="question_tags" id="question-tags" placeholder="Enter the tags of your question" style=" background-color: rgba(248, 252, 255, 0.85);" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary" style="text-align: center">Post Question</button>
                                     
                             </form>
                         </div>
 
-                            <div class="panel" id="Tips-Answering">
-                                <h3 class="tips-questions-heading">Tips for asking questions</h3>
-                                <ol class="list-of-featues">
-                                        <li><p>Ask questions clearly providing details. </p></li>
-                                        <li><p>Ask questions which can be answered and not just discussed. </p></li>
-                                        <li><p>Indent code (if any) with 4 spaces </p></li>
-                                        <li><p>Tags can help you categorize your question. </p></li>
-                                        <li><p>Favour using existing popular tags </p></li>                                        
-                                    </ol>
-                            </div>
+                        <div class="panel" id="Tips-Answering">
+                            <h3 class="tips-questions-heading">Tips for asking questions</h3>
+                            <ol class="list-of-featues">
+                                    <li><p>Ask questions clearly providing details. </p></li>
+                                    <li><p>Ask questions which can be answered and not just discussed. </p></li>
+                                    <li><p>Indent code (if any) with 4 spaces </p></li>
+                                    <li><p>Tags can help you categorize your question. </p></li>
+                                    <li><p>Favour using existing popular tags </p></li>                                        
+                                </ol>
+                        </div>
                                                 
                     </div>
-                                        <div class="tab-pane fade" id="answer-ques" role="tabpanel" aria-labelledby="answer-ques-tab">
-                                            <h1>Answer Some Questions here</h1>
-                                            </div>
+                    <div class="tab-pane fade" id="answer-ques" role="tabpanel" aria-labelledby="answer-ques-tab" style="margin:5%;">
+                        <label for="answer-tags" style="font-weight:bold;font-size:larger">Search for Question by Tag:</label>
+                        <form action="#" class="form-inline">
+                            <input type="search" class="form-control" id="answer-tags" placeholder="Enter question tags to search" style=" background-color: rgba(248, 252, 255, 0.85);width:50%;" required>
+                            <button class = "btn btn-outline-primary search-icon" type="submit" style="width:45px;height:45px"><span><img src="static/css/images/search_icon.png" width="30px"></span></button>
+                        </form>
+                        <br>
+                        <label for="answer-title" style="font-weight:bold;font-size:larger">Search for Question by Title:</label>
+                        <form action="#" class="form-inline">
+                            <input type="search" class="form-control" id="answer-title" placeholder="Enter question title to search" style=" background-color: rgba(248, 252, 255, 0.85);width:50%;" required>
+                            <button class = "btn btn-outline-primary search-icon" type="submit" style="width:45px;height:45px"><span><img src="static/css/images/search_icon.png" width="30px"></span></button>
+                        </form>
+                    </div>
                 </div>        
             </div>
         </div>

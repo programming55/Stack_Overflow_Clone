@@ -31,13 +31,76 @@ function panel3(){
     } 
 }
 
+function User_Check(){
+        return $.ajax({
+            url: "/checklogin",
+            type: "post",
+            async: false,
+            // dataType: 'json',
+        });
+    }
+    function CheckLogin(result){
+            if(result=='true'){
+                console.log(result);
+                return true;
+            }
+            else{
+                alert("You must Log In before posting any answers!");
+                return false;
+            }
+    }
+
+
+
 function Validate_Username(){
     var username_box = document.getElementById('username');
     var username = document.getElementById('username').value;
-    //check if username exists in databse if it does show message in tooltip that user name exists
-    username_box.style.border = "2px solid #04d812";
-    return true;
+    var username_tooltip = document.getElementById('user_name-tooltip');
+    $.ajax({
+        url: "/checklogin",
+        type: "post",
+        data: {'user':username} ,
+        success: function(result){
+            console.log(result, result.constructor);
+            if(result==="false"){
+                username_box.style.border = "1px solid red";
+                username_tooltip.innerHTML = "Username alredy exists!";
+                return false;
+            }
+            else{
+                username_tooltip.innerHTML = "";        
+                username_box.style.border = "2px solid #04d812";
+                return true;
+            }
+        }
+    });
 }
+
+function Check_Username(){
+    var username_box = document.getElementById('user');
+    var username = document.getElementById('user').value;
+    var username_tooltip = document.getElementById('usr-tooltip');
+    $.ajax({
+        url: "/checklogin",
+        type: "post",
+        data: {'user':username} ,
+        success: function(result){
+            console.log(result, result.constructor);
+            if(result==="true"){
+                username_box.style.border = "1px solid red";
+                username_tooltip.innerHTML = "Username not found!";
+                return false;
+            }
+            else{
+                username_tooltip.innerHTML = "";        
+                username_box.style.border = "2px solid #04d812";
+                return true;
+            }
+        }
+    });
+
+}
+
 
 function Validate_Email(){
     var email_box = document.getElementById('email');
@@ -113,7 +176,7 @@ function Validate_Password2(){
 }
 
 function Validate_SignUp(){
-    var check_name = Validate_Username();
+    // var check_name = Validate_Username();
     var check_email =Validate_Email();
     var check_pass =Validate_Password1();
     var check_passr =Validate_Password2();

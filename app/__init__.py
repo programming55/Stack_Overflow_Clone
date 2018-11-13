@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 # Creates the application object 
 app = Flask(__name__,static_url_path='/static')
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///new.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///IIITHSO.db'
 db = SQLAlchemy(app)
 
 # Import Views from the app module. (DO NOT Confuse with app variable)

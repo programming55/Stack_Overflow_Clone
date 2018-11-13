@@ -40,7 +40,7 @@
                         </li>
                         <li class="nav-item ">
                             <form name="profile" class="form-inline" action="userpage" method="POST">
-                                <button class="btn btn-outline-success" type="submit" id="Profile-button">Profile<span class="badge badge-light" id="Profile-badge">5</span></button>
+                                <button class="btn btn-outline-success" type="submit" id="Profile-button">Profile</button>
                                 <!-- <button href="/userpage" class=" btn btn-outline-primar q-links" type="link">Profile </button> -->
                             </form>
                         </li>
@@ -69,19 +69,19 @@
             </div>
             <div class="col-sm-6" id="User-main-pane">
                 <div class="container">
-                        <form>
+                        <form action="/askQuestion" method="POST">
                                 <div class="form-group">
                                   <label for="question-title" style="font-weight:bold;font-size:large">Title of Question:</label>
-                                  <input type="text" class="form-control" id="question-title" placeholder="Enter the title of your question" style=" background-color: rgba(248, 252, 255, 0.85);" required>
+                                  <input type="text" class="form-control" name="question_title" id="question-title" placeholder="Enter the title of your question" style=" background-color: rgba(248, 252, 255, 0.85);" required>
                                 </div>
                                 <div class="form-group">
                                   <label for="question-body" style="font-weight:bold;font-size:large">Body of the question</label>
                                   <br>
-                                  <textarea class="question-body" id="question-body" rows = 15 placeholder="The details of the questions..." required></textarea>
+                                  <textarea class="question-body" name="question_body" id="question-body" rows = 15 placeholder="The details of the questions..." required></textarea>
                                 </div>
                                 <div class="form-group">
                                         <label for="question-tags" style="font-weight:bold;font-size:large">Tags for Question:</label>
-                                        <input type="text" class="form-control" id="question-tags" placeholder="Enter the tags of your question" style=" background-color: rgba(248, 252, 255, 0.85);" required>
+                                        <input type="text" class="form-control" name="question_tags" id="question-tags" placeholder="Enter the tags of your question" style=" background-color: rgba(248, 252, 255, 0.85);" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary" style="text-align: center">Post Question</button>
                                 
