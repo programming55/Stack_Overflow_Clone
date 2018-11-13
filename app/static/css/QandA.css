@@ -199,8 +199,8 @@
 
 
 #repo-up{
-    margin-top:10px;
-    margin-bottom:10px;
+    margin-top:5px;
+    margin-bottom:5px;
     margin-left:10px;
     margin-right:20px;
     
@@ -208,12 +208,13 @@
 
 #repo-down{
     /* margin-top:2px; */
-    margin-bottom:10px;
+    margin-bottom:5px;
     margin-left:10px;
     margin-right:20px;
 }
+
 #accept-ans{
-    /* margin-top:2px; */
+    margin-top:10px;
     margin-bottom:10px;
     margin-left:10px;
     margin-right:20px;
@@ -221,10 +222,16 @@
 
 #answer-accepted{
     display: none;
+    margin-bottom:10px;
+    margin-left:10px;
+    margin-right:20px;
 }
 
 #accepted-image{
     /* display:none; */
+    margin-bottom:10px;
+    margin-left:10px;
+    margin-right:20px;
 }
 
 @media screen and (max-width: 600px){

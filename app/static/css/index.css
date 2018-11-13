@@ -117,6 +117,7 @@
     /* overflow: hidden; */
     /* transition: max-height 0.2s ease-out; */
     font-size: 150%;
+    margin-left: -4%;
     /* width:80%; */
 }
 
@@ -124,8 +125,9 @@
 	width: 100%;
 	font-weight: bold;
 	font-size: 150%;
-	background-color: rgba(46, 238, 222, 0.952);
-	color: black;
+	background-color: rgba(63, 250, 16, 0.699);
+    color: black;
+    margin-left: -8%;
 }
 
 .questions{
@@ -133,6 +135,13 @@
     font-weight: bold;
 }
 .questions:hover{
+    color:aqua;
+}
+.questions-session{
+    color:white;
+    font-weight: bold;
+}
+.questions-session:hover{
     color:aqua;
 }
 

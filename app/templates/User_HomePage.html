@@ -49,7 +49,7 @@
                     
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-outline-danger" id="Logout-button" href="logout">Logout</a>
+                    <a class="btn btn-outline-danger" id="Logout-button" href="logoutuser">Logout</a>
                 </li>
                 </ul>
             </div>
@@ -101,14 +101,14 @@
                         <div class="edit-profile-container">
                             <label class="h4">Edit Profile:</label>
                             <label></label>
-                            <form>
-                                <div class="form-group">
-                                    <label for="Email" style="font-weight:bold">Email:</label>
-                                    <input class="form-control" type="text" placeholder="user_namex@abc.com" readonly>
-                                </div>
+                            <div class="form-group">
+                                <label for="Email" style="font-weight:bold">Email:</label>
+                                <input class="form-control" type="text" placeholder="user_namex@abc.com" readonly>
+                            </div>
+                            <form action="/updateprofile">
                                 <div class="form-group">
                                     <label for="Display-name" style="font-weight:bold">User Name:</label>
-                                    <input type="text" class="form-control" id="Display-name" placeholder="Your Display Name">
+                                    <input type="text" class="form-control" id="Display-name" placeholder="Your Display Name" required>
                                 </div>
                                 <div class="form-group">
                                         <label for="change-dp" style="font-weight:bold">Change Profile Picture:</label>
@@ -149,7 +149,7 @@
                                 <ol class="list-of-featues">
                                         <li><p>Ask questions clearly providing details. </p></li>
                                         <li><p>Ask questions which can be answered and not just discussed. </p></li>
-                                        <li><p>Indend code (if any) with 4 spaces </p></li>
+                                        <li><p>Indent code (if any) with 4 spaces </p></li>
                                         <li><p>Tags can help you categorize your question. </p></li>
                                         <li><p>Favour using existing popular tags </p></li>                                        
                                     </ol>

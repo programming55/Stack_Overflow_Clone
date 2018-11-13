@@ -27,22 +27,25 @@
                 <div class="collapse navbar-collapse" id="navbarToggler">
                     <ul class="navbar-nav ml-auto mt-2">
                         <li class="nav-item">
-                            <form class="form-inline">
+                            <form class="form-inline" action="#">
                                 <input type="search" placeholder="Search for Answers..." class="nav-search-bar">
                                 <button class = "btn btn-outline-primary search-icon" type="submit"><span><img src="static/css/images/search_icon.png" width="20px"></span></button>
                             </form>
                         </li>
                         <li class="nav-item">
-                                <label class="user-label">Welcome User: user_namex</label>
+                                <label class="user-label">Welcome User: {{username}}</label>
                         </li>
                         <li class="nav-item">
                             <a class="btn btn-outline-warning" id="Help-button" href="#">Help</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="btn btn-outline-success" id="Profile-button" href="userpage">Profile<span class="badge badge-light" id="Profile-badge">5</span></a>
+                            <form name="profile" class="form-inline" action="userpage" method="POST">
+                                <button class="btn btn-outline-success" type="submit" id="Profile-button">Profile<span class="badge badge-light" id="Profile-badge">5</span></button>
+                                <!-- <button href="/userpage" class=" btn btn-outline-primar q-links" type="link">Profile </button> -->
+                            </form>
                         </li>
                         <li class="nav-item">
-                        <a class="btn btn-outline-danger" id="Logout-button" href="#">Logout</a>
+                        <a class="btn btn-outline-danger" id="Logout-button" href="logoutaskques">Logout</a>
                     </li>
                     </ul>
                 </div>
@@ -92,7 +95,7 @@
                         <ol class="list-of-featues">
                                 <li><p>Ask questions clearly providing details. </p></li>
                                 <li><p>Ask questions which can be answered and not just discussed. </p></li>
-                                <li><p>Indend code (if any) with 4 spaces </p></li>
+                                <li><p>Indent code (if any) with 4 spaces </p></li>
                                 <li><p>Tags can help you categorize your question. </p></li>
                                 <li><p>Favour using existing popular tags </p></li>
                                 <li><p>Tags are optional </p></li>
