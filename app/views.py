@@ -133,6 +133,10 @@ def About():
 def Answering_Policy():
 	return render_template('Answering_Policy.html')
 
+@app.route('/faq')
+def FAQ():
+	return render_template('FAQ.html')
+
 @app.route('/updateprofile', methods=['POST'])
 def Update_Profile():
 	engine = create_engine('sqlite:///:memory:', echo=True)

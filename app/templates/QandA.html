@@ -33,16 +33,20 @@
                                     <form class="form-inline">
                                         <input type="search" placeholder="Search for Answers..." class="nav-search-bar">
                                         <button class = "btn btn-outline-primary search-icon" type="submit"><span><img src="static/css/images/search_icon.png" width="20px"></span></button>
+                                    </form>
                                     
                                 </li>
                             <li class="nav-item">
                                     <label class="user-label">Welcome User: {{username}}</label>
                             </li>
                         <li class="nav-item">
-                            <a class="btn btn-outline-warning" id="Help-button" href="#">Help</a>
+                            <a class="btn btn-outline-warning" id="Help-button" href="faq">FAQ</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="btn btn-outline-success" id="Profile-button" href="userpage">Profile</a>
+                            <form name="profile" class="form-inline" action="userpage" method="POST">
+                                <button class="btn btn-outline-success" type="submit" id="Profile-button">Profile</button>
+                                <!-- <button href="/userpage" class=" btn btn-outline-primar q-links" type="link">Profile </button> -->
+                            </form>
                         </li>
                         <li class="nav-item">
                             <a class="btn btn-outline-danger" id="Logout-button" href="logoutqanda">Logout</a>
@@ -72,7 +76,7 @@
                                     </form>
                             </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-warning" id="Help-button" href="#">Help</a>
+                        <a class="btn btn-outline-warning" id="Help-button" href="faq">FAQ</a>
                     </li>
                     <li class="nav-item">
                         <a class="btn btn-outline-primary" id="Logout-button" href="index">Sign Up/Login</a>
@@ -116,9 +120,9 @@
                     <br>
                     <a href="about" class="q-links">About</a>
                     <br>
-                    <a href="#" class="q-links">Support</a>
-                    <br>
-                    <a href="#" class="q-links">Answering Policy</a>
+                    <!-- <a href="#" class="q-links">Support</a>
+                    <br> -->
+                    <a href="coc" class="q-links">Answering Policy</a>
                     <br>
                    </div>
                 </div>
@@ -184,13 +188,13 @@
                     </div>
                     <div class = "container ques-user-info">
                             <p id="user-info">
-                                User Info Goes here
+                                <span><img src="" alt="User-avatar"></span> asked by username.
                             </p>
                             <hr style="background-color: rgb(0, 255, 255);">
                     </div>
                     <div class = "container ques-comment">
                             <p id="comments">
-                                Comments go here
+                                    <span><img src="" alt="User-avatar"></span> comment by username.
                             </p>
                             {%if logged_in %}
                                 <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Add a new comment">
@@ -328,13 +332,13 @@
                     </div>
                     <div class = "container ans-user-info">
                             <p id="ans-user-info">
-                                User Info Goes here
+                                <span><img src="" alt="User-avatar"></span> answered by username.
                             </p>
                             <hr style="background-color: rgb(0, 255, 255);">
                     </div>
                     <div class = "container ans-comment">
                             <p id="ans-comments">
-                                Comments go here
+                                <span><img src="" alt="User-avatar"></span> asked by username.    
                             </p>
                             {%if logged_in %}
                                 <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Add a new comment">
@@ -359,7 +363,7 @@
                             </span>
                         {%else%}
                             <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Login to answer questions">
-                                <input type="submit" class="btn btn-primary" value="Post Answer" style="margin-top:1%" disabled>
+                                <input type="submit" class="btn btn-primary" value="Post Answer" style="margin-top:5%" disabled>
                             </span>
                         {%endif%}
                     </form>

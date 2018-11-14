@@ -157,7 +157,13 @@
     overflow-y: auto;
 }
 
+
+
 .ques-user-info{
+    float: right;
+    text-align: right;
+}
+.ans-user-info{
     float: right;
     text-align: right;
 }
