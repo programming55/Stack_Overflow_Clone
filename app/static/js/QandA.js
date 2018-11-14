@@ -63,7 +63,7 @@ function Accept_Answer(){
     accept_but.style.boxShadow = "none";
     accept_but.style.display = "none";
     var image = document.getElementById('accepted-image');
-    image.src = "static/css/images/accepted_ans.png"
+    image.style.display = "block"
 }
 
 function Check_Accepted(){
@@ -72,6 +72,6 @@ function Check_Accepted(){
     tick_span.style.display = "block";
     if(accepted)
         var image = document.getElementById('accepted-image');
-        image.src = "static/css/images/accepted_ans.png"
+        image.style.display = "block"
 }
 

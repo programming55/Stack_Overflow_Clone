@@ -16,8 +16,19 @@ from sqlalchemy.sql import update
 from sqlalchemy import create_engine
 from sqlalchemy.sql import bindparam
 from passlib.hash import pbkdf2_sha512
+from base64 import b64encode
 
+i = -1
+j = -1
+def mydefault():
+    global i
+    i += 1
+    return i
 
+def AnswerId():
+    global j
+    j+=1
+    return j
 
 @app.route('/')
 @app.route('/index')
@@ -53,7 +64,10 @@ def User_Login():
 			session.permanent = False
 		else:
 			session.permanent = True
-		return render_template('User_HomePage.html', username=user.display_name, logged_in = True, userinfo = user)
+		userinf = User.query.filter((User.username == session['user'])).first()
+		pic = b64encode(userinf.profile_image_data)
+		pic2 = pic.decode('ascii')
+		return render_template('User_HomePage.html', username=user.display_name, logged_in = True, userinfo = user, image=pic2)
 	return render_template("index.html", logged_in = False, auth_fail=True)
 
 @app.route('/logoutqanda', methods=['POST', 'GET'])
@@ -63,7 +77,7 @@ def LogoutQandA():
 		# return render_template("QandA.html", logged_in = False)
 
 	# else:
-	return render_template("QandA.html", logged_in = False)
+	return render_template("index.html", logged_in = False)
 
 @app.route('/logoutaskques', methods=['POST', 'GET'])
 def LogoutAsk():
@@ -86,7 +100,9 @@ def LogoutUser():
 @app.route('/userpage',methods=['POST'])
 def User_HomePage():
 	userinf = User.query.filter((User.username == session['user'])).first()
-	return render_template('User_HomePage.html', logged_in=True, username=userinf.display_name, userinfo = userinf)
+	pic = b64encode(userinf.profile_image_data)
+	pic2 = pic.decode('ascii')
+	return render_template('User_HomePage.html', logged_in=True, username=userinf.display_name, userinfo = userinf, image=pic2)
 
 @app.route('/signup', methods=['POST'])
 def Sign_Up():
@@ -105,12 +121,24 @@ def Sign_Up():
 	else:
 		return render_template("index.html", logged_in = False, user_exists=True)
 
-@app.route('/qanda',methods=['POST', 'GET'])
-def QandA():
+@app.route('/qanda',methods=['GET'])
+def Ques():
 	if 'user' in session:
 		return render_template('QandA.html', logged_in = True, username = session['user'])
 	else:
 		return render_template('QandA.html', logged_in = False)
+
+@app.route('/qanda/<title>',methods=['POST', 'GET'])
+def QandA(title):
+	question = Questions.query.filter_by(title=title).first()
+	asked_by = User.query.filter_by(username=question.asked_by_username).first()
+	# answer = Answers.query.filter
+	pic = b64encode(asked_by.profile_image_data)
+	pic2 = pic.decode('ascii')
+	if 'user' in session:
+		return render_template('QandA.html', logged_in = True, username = session['user'], ques=question, user = asked_by, image=pic2)
+	else:
+		return render_template('QandA.html', logged_in = False, ques=question, user = asked_by, image=pic2)
 
 @app.route('/askques',methods=['POST'])
 def Ask_Ques():
@@ -122,7 +150,7 @@ def Ask_Question():
 	title = request.form['question_title']
 	body = request.form['question_body']
 	tag = request.form['question_tags']
-	question = Questions(title = title,question_body=body,asked_by_username=usrname,tag=tag)
+	question = Questions(title = title,qid=mydefault(), answer_id=AnswerId(), question_body=body,asked_by_username=usrname,tag=tag)
 	db.session.add(question)
 	db.session.commit()
 	userinf = User.query.filter((User.username == session['user'])).first()
@@ -146,17 +174,14 @@ def Update_Profile():
 	conn = engine.connect()
 	user_name = session['user']
 	dn=request.form['display_name']
-	image=request.form['change_dp']
+	file = request.files['change_dp']
 	bio=request.form['bio']
-	# stmt = User.update().\
-	#       values(display_name = dn).\
-	# 	  where(User.username == bindparam('username'))
-	# conn.execute(stmt,username = user_name)
-	row = db.session.query(User).filter(User.username == user_name).first()
-	row.display_name = dn
-	row.bio = bio
+	row_changed = User.query.filter_by(username=user_name).update(dict(user_bio = bio, display_name=dn,profile_image=file.filename, profile_image_data=file.read()))
+	db.session.commit()
 	userinf = User.query.filter((User.username == session['user'])).first()
-	return render_template('User_HomePage.html', username=userinf.display_name,logged_in=True,userinfo = userinf)
+	pic = b64encode(userinf.profile_image_data)
+	pic2 = pic.decode('ascii')
+	return render_template('User_HomePage.html', username=userinf.display_name, image=pic2 ,logged_in=True,userinfo = userinf)
 
 @app.route('/checklogin', methods=['POST'])
 def CheckLogged_In():
@@ -166,6 +191,28 @@ def CheckLogged_In():
 		return 'true'
 	else:
 		return 'false'
+
+@app.route('/top10ques')
+def getTop10ques():
+	questions = Questions.query.limit(10).all()
+	# ques = ques.order_by(sql.desc(Questions.ques_votes))
+	if 'user' in session:
+		return render_template('index.html', logged_in = True, ques = questions)
+	else:
+		return render_template('index.html', logged_in = False, ques = questions) 
+
+@app.route('/postans/<title>', methods=['POST'])
+def Post_Answer(title):
+	new_ans_id = AnswerId()
+	user = session['user']
+	reqd = Questions.query.filter((Questions.title == title)).first()
+	row_updated = Questions(qid=mydefault(), title=reqd.title, question_body=reqd.question_body,answer_id= new_ans_id, asked_by_username=reqd.asked_by_username)
+	db.session.add(row_updated)
+	db.session.commit()
+	answer = request.form["answer-body"]
+	answer_updated = Answers(new_ans_id, answer,user)
+	db.session.add(answer_updated)
+	db.session.commit()
 
 @app.errorhandler(404)
 def http_404_handler(error):

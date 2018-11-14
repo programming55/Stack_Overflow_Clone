@@ -71,7 +71,7 @@
             </div>
             <div class="column-sm-4">
                 <div class="card" style="width: 12rem; background-color: rgba(230, 230, 250, 0.788);margin-top:10%;">
-                    <img class="card-img-top" src="static/css/images/generic_avatar.png" style="width:100px;display: block;text-align: center;margin-left: 23%" alt="User Avatar">
+                    <img src="data:image;base64,{{ image }}" style="width:100px;display: block;text-align: center;margin-left: 23%" alt="User Avatar">
                     <ul class="list-group list-group-flush" >
                         <li class="list-group-item" style="background-color: rgba(66, 77, 168, 0.45)">Reputation: {{userinfo.reputation}}</li>
                         <li class="list-group-item" style="background-color: rgba(66, 77, 168, 0.45)">Name: {{userinfo.username}}</li>
@@ -106,19 +106,19 @@
                                 <label for="Email" style="font-weight:bold">Email:</label>
                                 <input class="form-control" type="text" placeholder={{userinfo.email}} readonly>
                             </div>
-                            <form action="/updateprofile" method="POST">
+                            <form action="/updateprofile" method="POST" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="Display-name" style="font-weight:bold">Display Name:</label>
                                     <input type="text" class="form-control" id="Display-name" name="display_name" placeholder="Your Display Name" required>
                                 </div>
                                 <div class="form-group">
                                         <label for="change-dp" style="font-weight:bold">Change Profile Picture:</label>
-                                        <input type="file" class="form-control-file" id="change-dp" name="change_dp">
+                                        <input type="file" class="form-control-file" id="change_dp" name="change_dp">
                                 </div>
                                 <div class="form-group" style="font-weight:bold">
                                         <label for="bio-body">Bio:</label>
                                         <br>
-                                        <textarea class="form=control bio-body" name="bio" id="bio-body" rows = 8 placeholder={{userinfo.bio}}></textarea>
+                                        <textarea class="form=control bio-body" name="bio" id="bio-body" rows = 8 placeholder={{userinfo.user_bio}}></textarea>
                                     </div>
                                 <button type="submit" class="btn btn-primary">Save Changes</button>
                             </form>

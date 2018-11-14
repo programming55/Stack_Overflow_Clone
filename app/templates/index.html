@@ -92,30 +92,16 @@
 
     {%if logged_in%}    
         <div class="col-sm-6" style="text-align:center">
-            <button class="btn btn-outline-success" id="panel-session-but1" >Top 10 Questions</button>
-            <div class="panel-session">
-                <a href="#" class="questions-session">Question1 is here</a>
+            <a  href="/top10ques" class="btn btn-outline-success" id="panel-session-but1">Top 10 Questions</a>
+            <div class="panel-session-out">
+                {%for question in ques %}
+                <a href="/qanda/{{question.title}}" class="questions-session">{{question.title}}</a>
                 <br>
-                <a href="#" class="questions-session">Question2 is here</a>
-                <br>
-                <a href="#" class="questions-session">Question3 is here</a>
-                <br>
-                <a href="#" class="questions-session">Question4 is here</a>
-                <br>
-                <a href="#" class="questions-session">Question5 is here</a>
-                <br>
-                <a href="#" class="questions-session">Question6 is here</a>
-                <br>
-                <a href="#" class="questions-session">Question7 is here</a>
-                <br>
-                <a href="#" class="questions-session">Question8 is here</a>
-                <br>
-                <a href="#" class="questions-session">Question9 is here</a>
-                <br>
-                <a href="#" class="questions-session">Question10 is here</a>
+                {%endfor%}
+                
             </div>
         </div>
-        <div class = "col-sm-3">
+        <!-- <div class = "col-sm-3">
             <button class="accordion" id="panel-but2" onclick="panel2()">CSE</button>
             <div class="panel">
                 <a href="#" class="questions">Question1 is here</a>
@@ -160,7 +146,7 @@
                 <a href="#" class="questions">Question9 is here</a>
                 <br>
                 <a href="#" class="questions">Question10 is here</a>
-            </div>
+            </div> -->
         </div>
 
     {%else%}
@@ -232,30 +218,15 @@
             </div>
         </div>
         <div class = "col-sm-3">
-            <button class="accordion" id="panel-but1" onclick="panel1()">Top 10 Questions</button>
-            <div class="panel">
-                <a href="#" class="questions">Question1 is here</a>
+            <a  href="/top10ques" class="btn btn-outline-success" id="panel-but1">Top 10 Questions</a>
+            <div class="panel-session">
+                {%for question in ques %}
+                <a href="/qanda/{{question.title}}" class="questions">{{question.title}}</a>
                 <br>
-                <a href="#" class="questions">Question2 is here</a>
-                <br>
-                <a href="#" class="questions">Question3 is here</a>
-                <br>
-                <a href="#" class="questions">Question4 is here</a>
-                <br>
-                <a href="#" class="questions">Question5 is here</a>
-                <br>
-                <a href="#" class="questions">Question6 is here</a>
-                <br>
-                <a href="#" class="questions">Question7 is here</a>
-                <br>
-                <a href="#" class="questions">Question8 is here</a>
-                <br>
-                <a href="#" class="questions">Question9 is here</a>
-                <br>
-                <a href="#" class="questions">Question10 is here</a>
+                {%endfor%}
             </div>
 
-            <button class="accordion" id="panel-but2" onclick="panel2()">CSE</button>
+            <!-- <button class="accordion" id="panel-but2" onclick="panel2()">CSE</button>
             <div class="panel">
                 <a href="#" class="questions">Question1 is here</a>
                 <br>
@@ -300,7 +271,7 @@
                 <br>
                 <a href="#" class="questions">Question10 is here</a>
             </div>
-        </div>
+        </div> -->
     </div>
     {%endif%}
 </body>

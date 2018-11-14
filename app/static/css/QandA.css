@@ -160,12 +160,18 @@
 
 
 .ques-user-info{
-    float: right;
+    /* float: right; */
     text-align: right;
+    height: fit-content;
+    /* background-color: rgba(113, 159, 199, 0.233); */
+    padding:3px;
+    color: greenyellow;
+    font-weight: bold;
 }
 .ans-user-info{
     float: right;
     text-align: right;
+    padding: 3px;
 }
 
 

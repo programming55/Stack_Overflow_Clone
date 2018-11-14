@@ -19,10 +19,10 @@
         {%if logged_in %}
             <nav class="navbar sticky-top navbar-expand-sm bg-dark" id="User-logged-in-navbar">
                 <a class="navbar-brand" href="https://www.iiit.ac.in/">
-                    <img src="static/css/images/iiith_logo.png" alt="Logo" class="logo-image">
+                    <img src="{{url_for('static', filename='images/iiith_logo.png')}}" alt="Logo" class="logo-image">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span><img src = "static/css/images/expand_navbar.png" class = "expand-nav-button"></span>
+                        <span><img src = "{{url_for('static', filename='images/expand_navbar.png')}}" class = "expand-nav-button"></span>
                     </button>
                     <label class="nav-item mr-auto">
                             <label class="logo-label">IIITH Stack Overflow</label>
@@ -32,7 +32,7 @@
                             <li class="nav-item">
                                     <form class="form-inline">
                                         <input type="search" placeholder="Search for Answers..." class="nav-search-bar">
-                                        <button class = "btn btn-outline-primary search-icon" type="submit"><span><img src="static/css/images/search_icon.png" width="20px"></span></button>
+                                        <button class = "btn btn-outline-primary search-icon" type="submit"><span><img src="{{url_for('static', filename='images/search_icon.png')}}" width="20px"></span></button>
                                     </form>
                                     
                                 </li>
@@ -40,16 +40,16 @@
                                     <label class="user-label">Welcome User: {{username}}</label>
                             </li>
                         <li class="nav-item">
-                            <a class="btn btn-outline-warning" id="Help-button" href="faq">FAQ</a>
+                            <a class="btn btn-outline-warning" id="Help-button" href="../faq">FAQ</a>
                         </li>
                         <li class="nav-item ">
-                            <form name="profile" class="form-inline" action="userpage" method="POST">
+                            <form name="profile" class="form-inline" action="../userpage" method="POST">
                                 <button class="btn btn-outline-success" type="submit" id="Profile-button">Profile</button>
                                 <!-- <button href="/userpage" class=" btn btn-outline-primar q-links" type="link">Profile </button> -->
                             </form>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-outline-danger" id="Logout-button" href="logoutqanda">Logout</a>
+                            <a class="btn btn-outline-danger" id="Logout-button" href="../logoutqanda">Logout</a>
                         </form>
                     </li>
                     </ul>
@@ -59,10 +59,10 @@
         {%else%}
             <nav class="navbar sticky-top navbar-expand-sm bg-dark" id="User-logged-out-navbar">
                 <a class="navbar-brand" href="https://www.iiit.ac.in/">
-                    <img src="static/css/images/iiith_logo.png" alt="Logo" class="logo-image">
+                    <img src="{{url_for('static', filename='images/iiith_logo.png')}}" alt="Logo" class="logo-image">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span><img src = "static/css/images/expand_navbar.png" class = "expand-nav-button"></span>
+                        <span><img src = "{{url_for('static', filename='images/expand_navbar.png')}}" class = "expand-nav-button"></span>
                     </button>
                     <label class="nav-item mr-auto">
                             <label class="logo-label">IIITH Stack Overflow</label>
@@ -72,14 +72,14 @@
                             <li class="nav-item">
                                     <form class="form-inline">
                                         <input type="search" placeholder="Search for Answers..." class="nav-search-bar">
-                                        <button class = "btn btn-outline-primary search-icon" type="submit"><span><img src="static/css/images/search_icon.png" width="20px"></span></button>
+                                        <button class = "btn btn-outline-primary search-icon" type="submit"><span><img src="{{url_for('static', filename='images/search_icon.png')}}"width="20px"></span></button>
                                     </form>
                             </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-warning" id="Help-button" href="faq">FAQ</a>
+                        <a class="btn btn-outline-warning" id="Help-button" href="../faq">FAQ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-primary" id="Logout-button" href="index">Sign Up/Login</a>
+                        <a class="btn btn-outline-primary" id="Logout-button" href="../index">Sign Up/Login</a>
                     </li>
                     </ul>
                 </div>
@@ -91,7 +91,7 @@
                     <div class="col-sm-2" id="top-left-heading-space">
                     </div>
                     <div class="col-sm-6" style="text-align:left;">
-                            <h2>Question Title </h2>
+                            <h2>{{ques.title}}</h2>
                             <hr style="width:200%;background-color: rgb(9, 255, 0); transform:translatex(-120px)">
                     </div>
                     
@@ -106,7 +106,7 @@
                             <!-- <a href="askques" class="btn btn-primary" id="Ask-question">Ask Question</button> -->
                         {%else%}
                             <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Please Login To Ask A new Question">
-                                <button class="btn btn-outline-primary" type="button" id="Profile-button" disabled>Ask Question</button>
+                                <button class="btn btn-outline-primary" type="button" id="Question-button" disabled>Ask Question</button>
                             </span>
                         {%endif%} 
                     </div>
@@ -116,13 +116,13 @@
           <div class="row">
                 <div class="col-sm-2">
                    <div class="quick-links">
-                    <a href="index" class="q-links">Home</a>
+                    <a href="../index" class="q-links">Home</a>
                     <br>
-                    <a href="about" class="q-links">About</a>
+                    <a href="../about" class="q-links">About</a>
                     <br>
                     <!-- <a href="#" class="q-links">Support</a>
                     <br> -->
-                    <a href="coc" class="q-links">Answering Policy</a>
+                    <a href="../coc" class="q-links">Answering Policy</a>
                     <br>
                    </div>
                 </div>
@@ -131,78 +131,48 @@
                         <div id="user-repo" style="float:left;">
                             {%if logged_in %}
                                 <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Upvote the answer">
-                                    <button class="btn btn-outline-success" id="repo-up"><span><img src="static/css/images/up_arrow.png" width="30px"></span></button>
+                                    <button class="btn btn-outline-success" id="repo-up"><span><img src="{{url_for('static', filename='images/up_arrow.png')}}" width="30px"></span></button>
                                 </span>
                                 <br>
                                 <label><h3 style="text-align:center;margin-left:30px;margin-bottom: 1px">4</h3></label>
                                 <br>
                                 <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Downvote the answer">
-                                    <button class="btn btn-outline-danger" id="repo-down"><span><img src="static/css/images/down_arrow.png" width="30px"></span></button>
+                                    <button class="btn btn-outline-danger" id="repo-down"><span><img src="{{url_for('static', filename='images/down_arrow.png')}}"width="30px"></span></button>
                                 </span>
                             {%else%}
                                 <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Login to Upvote the answer">
-                                    <button class="btn btn-outline-success" id="repo-up" disabled><span><img src="static/css/images/up_arrow.png" width="30px"></span></button>
+                                    <button class="btn btn-outline-success" id="repo-up" disabled><span><img src="{{url_for('static', filename='images/up_arrow.png')}}"width="30px"></span></button>
                                 </span>
                                 <br>
                                 <label><h3 style="text-align:center;margin-left:30px;margin-bottom: 1px">4</h3></label><br>
                                 <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Login to Downvote the answer">
-                                    <button class="btn btn-outline-danger" id="repo-down" disabled><span><img src="static/css/images/down_arrow.png" width="30px"></span></button>
+                                    <button class="btn btn-outline-danger" id="repo-down" disabled><span><img src="{{url_for('static', filename='images/down_arrow.png')}}" width="30px"></span></button>
                                 </span>
                                 <br>
                                 <!-- <button class="btn btn-outline-success" id="accept-ans" onclick="Accept_Answer()"><span id ="answer-accepted"><img src="static/css/images/accepted_ans.png" width=30px id="accepted-image"></span><span id="accept-but-text">Accept</span></button> -->
                             {%endif%}
                         </div>
                         <p id="ques">
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
-                            The Question goes here:
+                            {{ques.question_body}}
                         </p>
                     </div>
                     <div class = "container ques-user-info">
                             <p id="user-info">
-                                <span><img src="" alt="User-avatar"></span> asked by username.
+                                <span><img src="data:image;base64,{{ image }}" style="width:30px;" alt="User Avatar"> {{user.username}} {{ques.asked_time}}</span>
                             </p>
                             <hr style="background-color: rgb(0, 255, 255);">
                     </div>
                     <div class = "container ques-comment">
                             <p id="comments">
-                                    <span><img src="" alt="User-avatar"></span> comment by username.
+                                 comment by username.
                             </p>
                             {%if logged_in %}
                                 <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Add a new comment">
-                                    <button class="btn btn-outline-success" id="add-comments" style="margin-top:-1%;" data-toggle="modal" data-target="#add-comment-modal"><span><img src="static/css/images/add_button.png" width="20px"></span></button>
+                                    <button class="btn btn-outline-success" id="add-comments" style="margin-top:-1%;" data-toggle="modal" data-target="#add-comment-modal"><span><img src="{{url_for('static', filename='images/add_button.png')}}" width="20px"></span></button>
                                 </span>
                             {%else%}
                                 <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Login to add a comment">
-                                    <button class="btn btn-outline-success" id="add-comments" style="margin-top:-1%;" data-toggle="modal" data-target="#add-comment-modal" disabled><span><img src="static/css/images/add_button.png" width="20px"></span></button>
+                                    <button class="btn btn-outline-success" id="add-comments" style="margin-top:-1%;" data-toggle="modal" data-target="#add-comment-modal" disabled><span><img src="{{url_for('static', filename='images/add_button.png')}}" width="20px"></span></button>
                                 </span>
                             {%endif%}
 
@@ -237,30 +207,30 @@
                         <div id="user-repo" style="float:left;">
                             {%if logged_in %}
                                 <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Upvote the answer">
-                                    <button class="btn btn-outline-success" id="repo-up"><span><img src="static/css/images/up_arrow.png" width="30px"></span></button>
+                                    <button class="btn btn-outline-success" id="repo-up"><span><img src="{{url_for('static', filename='images/up_arrow.png')}}" width="30px"></span></button>
                                 </span>
                                 <br>
                                 <label><h3 style="text-align:center;margin-left:30px;margin-bottom: 1px">4</h3></label>
                                 <br>
                                 <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Downvote the answer">
-                                    <button class="btn btn-outline-danger" id="repo-down"><span><img src="static/css/images/down_arrow.png" width="30px"></span></button>
+                                    <button class="btn btn-outline-danger" id="repo-down"><span><img src="{{url_for('static', filename='images/down_arrow.png')}}" width="30px"></span></button>
                                 </span>
                                 <br>
                                 <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Accept the answer if it is the correct solution">
                                     <button class="btn btn-outline-success" id="accept-ans" onclick="Accept_Answer()">Accept</button>
                                 </span>
-                                <span id ="answer-accepted"><img src="" width=30px id="accepted-image" alt=""></span>
+                                <span id ="answer-accepted"><img src="{{url_for('static', filename='images/accepted_ans.png')}}" width=30px id="accepted-image" alt="" style="display:none;"></span>
                             {% else %}
                                 <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Login to Upvote the answer">                       
-                                    <button class="btn btn-outline-success" id="repo-up" disabled><span><img src="static/css/images/up_arrow.png" width="30px"></span></button>
+                                    <button class="btn btn-outline-success" id="repo-up" disabled><span><img src="{{url_for('static', filename='images/up_arrow.png')}}" width="30px"></span></button>
                                 </span>
                                 <br>
                                 <label><h3 style="text-align:center;margin-left:30px;margin-bottom: 1px">4</h3></label><br>
                                 <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Login to Downvote the answer">                                
-                                    <button class="btn btn-outline-danger" id="repo-down" disabled><span><img src="static/css/images/down_arrow.png" width="30px"></span></button>
+                                    <button class="btn btn-outline-danger" id="repo-down" disabled><span><img src="{{url_for('static', filename='images/down_arrow.png')}}" width="30px"></span></button>
                                 </span>
                                 <br>
-                                <span id ="answer-accepted"><img src="" width=30px id="accepted-image" alt=""></span>
+                                <span id ="answer-accepted"><img src="{{url_for('static', filename='images/accepted_ans.png')}}"  width=30px id="accepted-image" alt="" style="display:none;"></span>
                                 <script>Check_Accepted();</script> 
                             {%endif%}
                         </div>
@@ -332,7 +302,7 @@
                     </div>
                     <div class = "container ans-user-info">
                             <p id="ans-user-info">
-                                <span><img src="" alt="User-avatar"></span> answered by username.
+                                 answered by username.
                             </p>
                             <hr style="background-color: rgb(0, 255, 255);">
                     </div>
@@ -342,20 +312,20 @@
                             </p>
                             {%if logged_in %}
                                 <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Add a new comment">
-                                    <button class="btn btn-outline-success" id="add-ans-comments" style="margin-top:-1%;" data-toggle="modal" data-target="#add-comment-modal"><span><img src="static/css/images/add_button.png" width="20px"></span></button>
+                                    <button class="btn btn-outline-success" id="add-ans-comments" style="margin-top:-1%;" data-toggle="modal" data-target="#add-comment-modal"><span><img src="{{url_for('static', filename='images/add_button.png')}}" width="20px"></span></button>
                                 </span>
                             {%else%}
                                 <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Login to add a comment">
-                                    <button class="btn btn-outline-success" id="add-ans-comments" style="margin-top:-1%;" data-toggle="modal" data-target="#add-comment-modal" disabled><span><img src="static/css/images/add_button.png" width="20px"></span></button>
+                                    <button class="btn btn-outline-success" id="add-ans-comments" style="margin-top:-1%;" data-toggle="modal" data-target="#add-comment-modal" disabled><span><img src="{{url_for('static', filename='images/add_button.png')}}" width="20px"></span></button>
                                 </span>
                             {%endif%}
 
                     </div>
                     <hr style="background-color: rgb(0, 255, 255);">
                     <h4>Your Answer:</h4> <span id="post-ans-msg"></span> 
-                    <form  action="#">
+                    <form  action="/postans/{{ques.title}}" method="POST">
                         <div class="answer-ques">
-                                <textarea class="user-ans" id="user-ans"rows = 10 placeholder="Write your answer here..." required></textarea>
+                                <textarea class="user-ans" id="user-ans"rows = 10 placeholder="Write your answer here..." required name ="answer-body"></textarea>
                         </div>
                         {%if logged_in %}
                             <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Post your answer">                        

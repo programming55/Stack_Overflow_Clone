@@ -117,7 +117,19 @@
     /* overflow: hidden; */
     /* transition: max-height 0.2s ease-out; */
     font-size: 150%;
-    margin-left: -4%;
+    margin-left: -5%;
+    /* width:80%; */
+}
+
+.panel-session-out {
+    padding: 0 18px;
+	background-color: rgba(87, 108, 177, 0.322);
+	width: 100%;
+    /* max-height: 0; */
+    /* overflow: hidden; */
+    /* transition: max-height 0.2s ease-out; */
+    font-size: 150%;
+    /* margin-left: -5%; */
     /* width:80%; */
 }
 
@@ -125,9 +137,21 @@
 	width: 100%;
 	font-weight: bold;
 	font-size: 150%;
-	background-color: rgba(63, 250, 16, 0.699);
+	background-color: rgba(46, 238, 222, 0.795);
     color: black;
-    margin-left: -8%;
+    /* margin-left: -4%; */
+}
+
+#panel-but1{
+	width: 100%;
+	font-weight: bold;
+	font-size: 150%;
+	background-color: rgba(46, 238, 222, 0.795);
+    color: black;
+    margin-left: -4%;
+    border-style: outset;
+    border-width: 1px;
+    border-color: #0963f3;
 }
 
 .questions{
