@@ -1,0 +1,51 @@
+.main-heading{
+    text-align: center;
+    /* background-color:rgb(77, 51, 68); */
+	position: -webkit-sticky;
+  	position: sticky;
+	top: 0;
+    z-index: 4;
+    font-weight: bolder;
+	/* border:3px solid;
+	box-shadow: 7px 7px 7px -4px blue inset, 10px 10px 10px -7px lime ;	 */
+
+	padding: 1%;
+}
+
+#main-body{
+    background-image: url(images/scream_back.jpg);
+    background-size: cover;
+
+}
+
+.scream{
+    text-align: center;
+    z-index: 2;
+    /* margin-top: 1%; */
+}
+
+.scream{
+    text-align: center;
+    align-content: center;
+    z-index: 2;
+    box-shadow: 5px 5px 2px rgb(44, 44, 44);
+    /* width: 610px; */
+    /* border: 2px solid black; */
+}
+
+.error-msg{
+    position:absolute;
+    top:4%;
+    left:15%;
+}
+.error-code{
+    font-weight: bolder;
+    font-size: 80px;
+    color:orangered;
+    z-index: 2;
+    text-shadow: 0 0 2px rgb(221, 89, 89), 0 0 5px black;
+    position: absolute;
+    top:42%;
+    left: 5%;
+}
+
