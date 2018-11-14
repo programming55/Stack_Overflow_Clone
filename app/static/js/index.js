@@ -45,7 +45,7 @@ function User_Check(){
                 return true;
             }
             else{
-                alert("You must Log In before posting any answers!");
+                // alert("You must Log In before posting any answers!");
                 return false;
             }
     }
@@ -176,11 +176,14 @@ function Validate_Password2(){
 }
 
 function Validate_SignUp(){
-    // var check_name = Validate_Username();
+    var username_tooltip = document.getElementById('user_name-tooltip').innerHTML;
+    if(username_tooltip!=""){
+        return false;
+    }
     var check_email =Validate_Email();
     var check_pass =Validate_Password1();
     var check_passr =Validate_Password2();
-    if(check_name && check_email && check_pass && check_passr){
+    if(check_email && check_pass && check_passr){
         return true
     }
     else{

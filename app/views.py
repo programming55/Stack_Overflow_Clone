@@ -35,6 +35,8 @@ def index():
 # 	else:
 # 		return render_template('index.html', logged_in = False)
 
+
+
 @app.route('/login', methods=['POST', 'GET'])
 def User_Login():
 	userID = request.form['user']
@@ -98,6 +100,7 @@ def Sign_Up():
 		db.session.add(user)
 		db.session.commit()
 		# flash('Your account has been created! You are now able to log in', 'success')
+		session['user'] = usrnm
 		return render_template('User_HomePage.html', username=user.display_name,logged_in=True, userinfo=user)
 	else:
 		return render_template("index.html", logged_in = False, user_exists=True)
@@ -164,3 +167,15 @@ def CheckLogged_In():
 	else:
 		return 'false'
 
+@app.errorhandler(404)
+def http_404_handler(error):
+	return render_template('Error404.html')
+
+@app.errorhandler(405)
+def http_405_handler(error):
+	return render_template('Error405.html')
+
+@app.errorhandler(500)
+def internal_error_handler(error):
+    db.session.rollback()
+    return render_template('Error500.html')
