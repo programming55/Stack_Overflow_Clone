@@ -65,8 +65,10 @@ def User_Login():
 		else:
 			session.permanent = True
 		userinf = User.query.filter((User.username == session['user'])).first()
-		pic = b64encode(userinf.profile_image_data)
-		pic2 = pic.decode('ascii')
+		pic2 = None
+		if userinf.profile_image_data != None:
+			pic = b64encode(userinf.profile_image_data)
+			pic2 = pic.decode('ascii')
 		return render_template('User_HomePage.html', username=user.display_name, logged_in = True, userinfo = user, image=pic2)
 	return render_template("index.html", logged_in = False, auth_fail=True)
 

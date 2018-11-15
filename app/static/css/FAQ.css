@@ -40,7 +40,7 @@
 }
 
 #main-body{
-	background-image: url("images/background2.jpeg");
+	background-image: url("../images/background2.jpeg");
 	background-size:auto;
 	background-repeat: repeat-y;
 	font-size: 120%;

@@ -11,7 +11,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <script type="text/javascript" src="{{url_for('static', filename='js/User_HomePage.js')}}"></script>
-        <link rel="icon" type="image/png" href="{{ url_for('static', filename='css/images/icons/favicon.ico') }}"/>
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icons/favicon.ico') }}"/>
 
 
 
@@ -21,10 +21,10 @@
 
         <nav class="navbar sticky-top navbar-expand-sm bg-dark">
             <a class="navbar-brand" href="https://www.iiit.ac.in/">
-                <img src="static/css/images/iiith_logo.png" alt="Logo" class="logo-image">
+                <img src="{{url_for('static', filename='images/iiith_logo.png')}}" alt="Logo" class="logo-image">
               </a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span><img src = "static/css/images/expand_navbar.png" class = "expand-nav-button"></span>
+                    <span><img src = "{{url_for('static', filename='images/expand_navbar.png')}}" class = "expand-nav-button"></span>
                   </button>
                   <label class="nav-item mr-auto">
                         <label class="logo-label">IIITH Stack Overflow</label>
@@ -34,7 +34,7 @@
                         <li class="nav-item">
                                 <form class="form-inline">
                                     <input type="search" placeholder="Search for Answers..." class="nav-search-bar">
-                                    <button class = "btn btn-outline-primary search-icon" type="submit"><span><img src="static/css/images/search_icon.png" width="20px"></span></button>
+                                    <button class = "btn btn-outline-primary search-icon" type="submit"><span><img src="{{url_for('static', filename='images/search_icon.png')}}"  width="20px"></span></button>
                                 </form>
                         </li>
                     <li class="nav-item">
@@ -161,13 +161,13 @@
                         <label for="answer-tags" style="font-weight:bold;font-size:larger">Search for Question by Tag:</label>
                         <form action="#" class="form-inline">
                             <input type="search" class="form-control" id="answer-tags" placeholder="Enter question tags to search" style=" background-color: rgba(248, 252, 255, 0.85);width:50%;" required>
-                            <button class = "btn btn-outline-primary search-icon" type="submit" style="width:45px;height:45px"><span><img src="static/css/images/search_icon.png" width="30px"></span></button>
+                            <button class = "btn btn-outline-primary search-icon" type="submit" style="width:45px;height:45px"><span><img src="{{url_for('static', filename='images/search_icon.png')}}"  width="30px"></span></button>
                         </form>
                         <br>
                         <label for="answer-title" style="font-weight:bold;font-size:larger">Search for Question by Title:</label>
                         <form action="#" class="form-inline">
                             <input type="search" class="form-control" id="answer-title" placeholder="Enter question title to search" style=" background-color: rgba(248, 252, 255, 0.85);width:50%;" required>
-                            <button class = "btn btn-outline-primary search-icon" type="submit" style="width:45px;height:45px"><span><img src="static/css/images/search_icon.png" width="30px"></span></button>
+                            <button class = "btn btn-outline-primary search-icon" type="submit" style="width:45px;height:45px"><span><img src="{{url_for('static', filename='images/search_icon.png')}}"  width="30px"></span></button>
                         </form>
                     </div>
                 </div>        

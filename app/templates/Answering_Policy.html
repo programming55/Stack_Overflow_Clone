@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/Answering_Policy.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!-- <script src="main.js"></script> -->
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='css/images/icons/favicon.ico') }}"/>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icons/favicon.ico') }}"/>
 </head>
 <body id="main-body">
     <div class="jumbotron jumbotron-fluid" id="main-heading">
@@ -39,10 +39,10 @@
                 <div class="col-sm-5">
                     <h3 class="behaviour">Unaccptable Behaviour</h3>
                     <ul class="list-of-policies">
-                        <li><span class="image"><img src="static/css/images/wrong.png" width="25px">  No subtle put-downs or unfriendly language </span></li>
-                        <li><span class="image"><img src="static/css/images/wrong.png" width="25px">  No name-calling or personal attacks</span></li>
-                        <li><span class="image"><img src="static/css/images/wrong.png" width="25px">  No bigotry</span></li>
-                        <li><span class="image"><img src="static/css/images/wrong.png" width="25px">  No harassment</span></li>
+                        <li><span class="image"><img src="{{url_for('static', filename='images/wrong.png')}}" width="25px">  No subtle put-downs or unfriendly language </span></li>
+                        <li><span class="image"><img src="{{url_for('static', filename='images/wrong.png')}}" width="25px">  No name-calling or personal attacks</span></li>
+                        <li><span class="image"><img src="{{url_for('static', filename='images/wrong.png')}}" width="25px">  No bigotry</span></li>
+                        <li><span class="image"><img src="{{url_for('static', filename='images/wrong.png')}}" width="25px">  No harassment</span></li>
                         
                     </ul>
                     
@@ -51,10 +51,10 @@
                     <h3 class="behaviour">Acceptable Behaviour </h3>
                     
                     <ul class="list-of-policies">
-                        <li><span class="image"><img src="static/css/images/correct.png" width="25px">  Be kind and friendly</span></li>
-                        <li><span class="image"><img src="static/css/images/correct.png" width="25px">  Be clear and constructive when giving feedback, and be open when receiving it</span></li>
-                        <li><span class="image"><img src="static/css/images/correct.png" width="25px">  If you’re here to help others, be patient and welcoming</span></li>
-                        <li><span class="image"><img src="static/css/images/correct.png" width="25px">  Answer with unambiguous language</span></li>
+                        <li><span class="image"><img src="{{url_for('static', filename='images/correct.png')}}" width="25px">  Be kind and friendly</span></li>
+                        <li><span class="image"><img src="{{url_for('static', filename='images/correct.png')}}" width="25px">  Be clear and constructive when giving feedback, and be open when receiving it</span></li>
+                        <li><span class="image"><img src="{{url_for('static', filename='images/correct.png')}}" width="25px">  If you’re here to help others, be patient and welcoming</span></li>
+                        <li><span class="image"><img src="{{url_for('static', filename='images/correct.png')}}" width="25px">  Answer with unambiguous language</span></li>
                          
                     </ul>
                     

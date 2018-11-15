@@ -75,7 +75,7 @@
 }
 
 #Main-body{
-    background-image: url(images/user_back3.jpeg);
+    background-image: url(../images/user_back3.jpeg);
     background-size: contain;
     min-height: 100vh;
     background-repeat: round;

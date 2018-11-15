@@ -71,7 +71,7 @@
 
 #Main_Body{
     /* background-color:repeating-radial-gradient(circle,rgba(235, 204, 30, 0.562),rgba(96, 27, 223, 0.37),rgba(78, 236, 15, 0.418)); */
-    background-image: url("images/user_back6.png");
+    background-image: url("../images/user_back6.png");
     background-repeat: round;
     background-size:auto;
     background-position: center;

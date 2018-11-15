@@ -77,7 +77,7 @@
 }
 
 #Main-body{
-    background-image: url(images/background_qa.jpg);
+    background-image: url(../images/background_qa.jpg);
     background-size: contain;
     min-height: 100vh;
     background-repeat: round;

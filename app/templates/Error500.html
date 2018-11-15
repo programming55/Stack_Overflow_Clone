@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/Error404.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-     <link rel="icon" type="image/png" href="{{ url_for('static', filename='css/images/icons/favicon.ico') }}"/>
+     <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icons/favicon.ico') }}"/>
     <!-- <script src="main.js"></script> -->
 </head>
 <body id="main-body">
@@ -17,10 +17,10 @@
         <hr style="background-color:red">
     </div>
     <div class="scream mt-auto mr-auto">
-        <img src="static/css/images/scream.jpg" width="600px">
+        <img src="{{url_for('static', filename='images/scream.jpg')}}" width="600px">
     </div>
     <div class="error-msg">
-            <img src="static/css/images/thought_bubble.png" width="800px">
+            <img src="{{url_for('static', filename='images/thought_bubble.png')}}" width="800px">
             <p1 class="error-code">500!</p1>
     </div>
 </body>

@@ -42,7 +42,7 @@ li{
 }
 
 #main-body{
-	background-image: url("images/back2.jpg");
+	background-image: url("../images/back2.jpg");
 	background-size:auto;
 	background-repeat: none;
 	font-size: 120%;
