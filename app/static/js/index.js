@@ -127,6 +127,34 @@ function Validate_Email(){
     }
 }
 
+
+function Validate_Recovery_Email(){
+    var email_box = document.getElementById('email-forgot-body');
+    var email = document.getElementById('email-forgot-body').value;
+    var email_pattern1 = new RegExp("[a-z0-9]*@students.iiit.ac.in$","i");
+    var email_pattern2 = new RegExp("[a-z0-9]*@research.iiit.ac.in$","i");
+    var email_res1 = email_pattern1.test(email);
+    var email_res2 = email_pattern2.test(email);
+    var email_tooltip = document.getElementById('forgot-email-tooltip');
+    if(email_res1 || email_res2){
+        email_box.style.border = "2px solid #04d812";
+        email_tooltip.innerHTML = "Password Reset Link Sent to registered email successfully. Click Close to exit this dialog box";
+        email_tooltip.style.color = "green";
+        return true;
+    }
+    else{
+            email_box.style.border =  "1px solid red";
+            email_tooltip.innerHTML = "Incorrect Email Format! Please enter your registered email only";
+            email_tooltip.style.color = "red";
+            // email_tooltip.style.textDecoration = "underline";
+            // email_tooltip.style.textDecorationColor="red";
+            // email_tooltip.style.fontWeight = "bold";
+            // email_tooltip.style.fontSize = "large";
+            return false;
+    }
+}
+
+
 function Validate_Password1(){
     var password_box = document.getElementById("newpass");
     var password = document.getElementById("newpass").value;

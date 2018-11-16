@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ILTQA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+	
+	 <script type="text/javascript" src="{{url_for('static', filename='js/index.js')}}"></script>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+     <link rel="icon" type="image/png" href="{{url_for('static', filename='images/icons/favicon.ico')}}"/>
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+
+</head>
+<body id="Main_Body" >
+
+
+    {%if logged_in %}
+    <nav class="navbar sticky-top navbar-expand-sm" style="background-color:rgba(126, 87, 177, 0.479);" id="User-logged-in-navbar">
+        <a class="navbar-brand" href="https://www.iiit.ac.in/">
+            <img src="{{url_for('static', filename='images/iiith_logo.png')}}" alt="Logo" class="logo-image">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span><img src = "{{url_for('static', filename='images/expand_navbar.png')}}" class = "expand-nav-button"></span>
+        </button>
+            
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav ml-auto mt-2">
+                <li class="nav-item">
+                    <form class="form-inline" action="/searchtitle" name="search" method="POST">
+                        <input type="search" placeholder="Search for Answers..." class="nav-search-bar" name="ques_by_title">
+                        <button class = "btn btn-outline-primary search-icon" type="submit"><span><img src="{{url_for('static', filename='images/search_icon.png')}}" width="20px"></span></button>
+                    </form>
+                        
+                </li>
+                <li class="nav-item ">
+                    <form name="profile" class="form-inline" action="userpage" method="POST">
+                        <button class="btn btn-outline-success" type="submit" id="Profile-button">Profile</button>
+                        <!-- <button href="/userpage" class=" btn btn-outline-primar q-links" type="link">Profile </button> -->
+                    </form>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-danger" id="Logout-button" href="logoutuser">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    {%else%}
+        <nav class="navbar sticky-top navbar-expand-sm" style="background-color:rgba(126, 87, 177, 0.329);" id="User-logged-out-navbar">
+            <a class="navbar-brand" href="https://www.iiit.ac.in/">
+                <img src="{{url_for('static', filename='images/iiith_logo.png')}}" alt="Logo" class="logo-image">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span><img src = "{{url_for('static', filename='images/expand_navbar.png')}}" class = "expand-nav-button"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggler">
+                <ul class="navbar-nav ml-auto mr-auto mt-2">
+                    <li class="nav-item">
+                        <form class="form-inline">
+                            <input type="search" placeholder="Search for Answers..." class="nav-search-bar">
+                            <button class = "btn btn-outline-primary search-icon" type="submit"><span><img src="{{url_for('static', filename='images/search_icon.png')}}"  width="20px"></span></button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    {%endif%}
+
+
+
+    <div class="main-heading" id="Main_Title">
+        <h1 class="display-3">IIIT Stack Overflow</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3">
+           <div class="quick-links">
+                <a href="index" class="q-links">Home</a>
+                <br>
+                <a href="about" class="q-links">About</a>
+                <br>
+                <a href="faq" class="q-links">FAQ</a>
+                <br>
+                <a href="coc" class="q-links">Answering Policy</a>
+                <br>
+            
+            </div>
+        </div>
+        <div class="col-sm-6" style="text-align:center">
+                <label class="btn btn-outline-success" id="panel-session-but1">Search Results</label>
+                <div class="panel-session-out">
+                    {% if srchbyques%}
+                        {% for res in srchbyques %}
+                            <a href="/qanda/{{res.title}}">{{ res.title }}</a>
+                            <br>
+                        {%endfor%}
+                    {%else%}
+                        <h3 style="color:red">Search Query Not Found!</h3>
+                    {% endif%}
+                    
+                </div>
+        </div>
+            
+    </div>
+
+</body>
+</html>

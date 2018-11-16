@@ -27,8 +27,8 @@
                 <div class="collapse navbar-collapse" id="navbarToggler">
                     <ul class="navbar-nav ml-auto mt-2">
                         <li class="nav-item">
-                            <form class="form-inline" action="#">
-                                <input type="search" placeholder="Search for Answers..." class="nav-search-bar">
+                            <form class="form-inline" action="/searchtitle" name="search" method="POST">
+                                <input type="search" placeholder="Search for Answers..." class="nav-search-bar" name="ques_by_title">
                                 <button class = "btn btn-outline-primary search-icon" type="submit"><span><img src="{{url_for('static', filename='images/search_icon.png')}}" width="20px"></span></button>
                             </form>
                         </li>

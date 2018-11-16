@@ -30,10 +30,10 @@
                 <div class="collapse navbar-collapse" id="navbarToggler">
                     <ul class="navbar-nav ml-auto mt-2">
                             <li class="nav-item">
-                                    <form class="form-inline">
-                                        <input type="search" placeholder="Search for Answers..." class="nav-search-bar">
-                                        <button class = "btn btn-outline-primary search-icon" type="submit"><span><img src="{{url_for('static', filename='images/search_icon.png')}}" width="20px"></span></button>
-                                    </form>
+                                <form class="form-inline" action="/searchtitle" name="search" method="POST">
+                                    <input type="search" placeholder="Search for Answers..." class="nav-search-bar" name="ques_by_title">
+                                    <button class = "btn btn-outline-primary search-icon" type="submit"><span><img src="{{url_for('static', filename='images/search_icon.png')}}" width="20px"></span></button>
+                                </form>
                                     
                                 </li>
                             <li class="nav-item">
@@ -70,10 +70,10 @@
                 <div class="collapse navbar-collapse" id="navbarToggler">
                     <ul class="navbar-nav ml-auto mt-2">
                             <li class="nav-item">
-                                    <form class="form-inline">
-                                        <input type="search" placeholder="Search for Answers..." class="nav-search-bar">
-                                        <button class = "btn btn-outline-primary search-icon" type="submit"><span><img src="{{url_for('static', filename='images/search_icon.png')}}"width="20px"></span></button>
-                                    </form>
+                                <form class="form-inline" action="/searchtitle" name="search" method="POST">
+                                    <input type="search" placeholder="Search for Answers..." class="nav-search-bar" name="ques_by_title">
+                                    <button class = "btn btn-outline-primary search-icon" type="submit"><span><img src="{{url_for('static', filename='images/search_icon.png')}}" width="20px"></span></button>
+                                </form>
                             </li>
                     <li class="nav-item">
                         <a class="btn btn-outline-warning" id="Help-button" href="../faq">FAQ</a>
@@ -92,7 +92,6 @@
                     </div>
                     <div class="col-sm-6" style="text-align:left;">
                             <h2>{{ques.title}}</h2>
-                            <hr style="width:200%;background-color: rgb(9, 255, 0); transform:translatex(-120px)">
                     </div>
                     
                     <div class="col-sm-4" style="text-align:right;">
@@ -130,9 +129,11 @@
                     <div class="container ques-body" id="ques-body" name="ques-body">
                         <div id="user-repo" style="float:left;">
                             {%if logged_in %}
+                            <form class="form-inline" action="/upvote_ques" method="POST">
                                 <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Upvote the answer">
                                     <button class="btn btn-outline-success" id="repo-up"><span><img src="{{url_for('static', filename='images/up_arrow.png')}}" width="30px"></span></button>
                                 </span>
+                            </form>
                                 <br>
                                 <label><h3 style="text-align:center;margin-left:30px;margin-bottom: 1px">4</h3></label>
                                 <br>
@@ -203,6 +204,8 @@
                     </div>
                     <hr style="background-color: rgb(0, 255, 255);">
                     <h4>x Answers:</h4>
+                    {%if ansr %}
+                        {% for a in ansr%}
                     <div class="ques-answers">
                         <div id="user-repo" style="float:left;">
                             {%if logged_in %}
@@ -216,10 +219,15 @@
                                     <button class="btn btn-outline-danger" id="repo-down"><span><img src="{{url_for('static', filename='images/down_arrow.png')}}" width="30px"></span></button>
                                 </span>
                                 <br>
-                                <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Accept the answer if it is the correct solution">
-                                    <button class="btn btn-outline-success" id="accept-ans" onclick="Accept_Answer()">Accept</button>
-                                </span>
-                                <span id ="answer-accepted"><img src="{{url_for('static', filename='images/accepted_ans.png')}}" width=30px id="accepted-image" alt="" style="display:none;"></span>
+                                {% if a.accepted%}
+                                    <span id ="answer-acc"><img src="{{url_for('static', filename='images/accepted_ans.png')}}" width=30px id="accepted-img" alt=""></span>
+                                {% elif user.username == username %}
+                                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Accept the answer if it is the correct solution">
+                                        <button class="btn btn-outline-success" type="submit" id="accept-ans" onclick="Accept_Answer('{{a.answer_id}}')">Accept</button>
+                                    </span>
+                                    <span style="display:none" id ="answer-accepted"><img src="{{url_for('static', filename='images/accepted_ans.png')}}" width=30px id="accepted-image" alt=""></span>
+                                {%endif%}
+
                             {% else %}
                                 <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Login to Upvote the answer">                       
                                     <button class="btn btn-outline-success" id="repo-up" disabled><span><img src="{{url_for('static', filename='images/up_arrow.png')}}" width="30px"></span></button>
@@ -230,85 +238,31 @@
                                     <button class="btn btn-outline-danger" id="repo-down" disabled><span><img src="{{url_for('static', filename='images/down_arrow.png')}}" width="30px"></span></button>
                                 </span>
                                 <br>
-                                <span id ="answer-accepted"><img src="{{url_for('static', filename='images/accepted_ans.png')}}"  width=30px id="accepted-image" alt="" style="display:none;"></span>
-                                <script>Check_Accepted();</script> 
+                                {% if a.accepted%}
+                                <span id ="answer-acc"><img src="{{url_for('static', filename='images/accepted_ans.png')}}" width=30px id="accepted-img" alt=""></span>
+                                {%endif%}
                             {%endif%}
                         </div>
-                        <p id="ans">
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
-                            The Answer goes here:
+                        <p id="ans-bod">
+                            <!-- <span id="ans-bdy" style="display:none">{{a.answer_id}}</span> -->
+                                    {{a.answer_body}}
+                                    <br>
+                             
                         </p>
+                        
                     </div>
+                    <hr style="background-color: rgb(9, 255, 0);">
+                   
                     <div class = "container ans-user-info">
-                            <p id="ans-user-info">
-                                 answered by username.
+                            <p id="ans-user-info" style="color:greenyellow">
+                                <span><img src="data:image;base64,{{ image }}" style="width:30px;" alt="User Avatar"> {{a.answered_by_user}}</span>
                             </p>
                             <hr style="background-color: rgb(0, 255, 255);">
                     </div>
                     <div class = "container ans-comment">
                             <p id="ans-comments">
-                                <span><img src="" alt="User-avatar"></span> asked by username.    
+                                <span><img src="" alt="User-avatar"></span> comment by username.   
+                                <br> 
                             </p>
                             {%if logged_in %}
                                 <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Add a new comment">
@@ -318,10 +272,14 @@
                                 <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Login to add a comment">
                                     <button class="btn btn-outline-success" id="add-ans-comments" style="margin-top:-1%;" data-toggle="modal" data-target="#add-comment-modal" disabled><span><img src="{{url_for('static', filename='images/add_button.png')}}" width="20px"></span></button>
                                 </span>
-                            {%endif%}
-
+                            {%endif%}    
                     </div>
                     <hr style="background-color: rgb(0, 255, 255);">
+                    <br> 
+                    
+                    {%endfor%}
+                    {%endif%}   
+
                     <h4>Your Answer:</h4> <span id="post-ans-msg"></span> 
                     <form  action="/postans/{{ques.title}}" method="POST">
                         <div class="answer-ques">

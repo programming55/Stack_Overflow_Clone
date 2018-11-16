@@ -5,7 +5,7 @@ import calendar
 from sqlalchemy import ForeignKey, types
 from sqlalchemy.orm import relationship
 from sqlalchemy import Sequence, MetaData
-from sqlalchemy.schema import CreateSequence
+from sqlalchemy import PrimaryKeyConstraint
 
 
 class User(db.Model):
@@ -37,15 +37,18 @@ class Answers(db.Model):
     answer_body = db.Column(db.String, nullable = False)
     answ_votes = db.Column(db.String, default = 0)
     answered_by_user = db.Column(db.Integer, ForeignKey(User.username)) 
-    accepted = db.Column(db.Integer, default = 0)
+    accepted = db.Column(db.Boolean, default = False)
     user = db.relationship('User',  primaryjoin=(User.username == answered_by_user), lazy =True)
 
 
 class Questions(db.Model):
     __tablename__ = 'questions'
     #qid = db.Column(db.Integer,default=mydefault(), primary_key = True)
-    qid = db.Column(db.Integer,default = 0, primary_key=True)
-    title = db.Column(db.Text, nullable = False, unique = True)
+    qid = db.Column(db.Integer,default = 0, nullable=False)
+    title = db.Column(db.Text, nullable = False)
+    __table_args__ = (
+        PrimaryKeyConstraint('qid', 'title'),
+    )
     question_body = db.Column(db.Text, nullable = False)
     answer_id = db.Column(db.Integer,ForeignKey('answers.answer_id'),default=0)
     asked_by_username = db.Column(db.String(30), ForeignKey(User.username))
@@ -54,13 +57,7 @@ class Questions(db.Model):
     asked_time = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     user = db.relationship('User', lazy = True, primaryjoin = (User.username == asked_by_username))
     answer = db.relationship('Answers', primaryjoin=(Answers.answer_id == answer_id), lazy = True)
-    # @property
-    # def tag(self):
-    #     return [for x in self._tag.split()]
     
-    # @tag.setter
-    # def tag(self,value):
-    #     self._tag+= ' ' % value
     
 class CommQuestions(db.Model):
     __tablename__ = 'comments_ques'

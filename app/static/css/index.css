@@ -350,9 +350,17 @@
 }
 
 .forgot-pass{
-    color: whitesmoke;
+    color:white;
+    background-color: rgba(128, 128, 128, 0);
+    border: none;
 }
+
 .forgot-pass:hover{
     color: rgb(255, 137, 2);
 }
+
+
+
+
+
 

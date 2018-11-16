@@ -32,9 +32,9 @@
             <div class="collapse navbar-collapse" id="navbarToggler">
                 <ul class="navbar-nav ml-auto mt-2">
                         <li class="nav-item">
-                                <form class="form-inline">
-                                    <input type="search" placeholder="Search for Answers..." class="nav-search-bar">
-                                    <button class = "btn btn-outline-primary search-icon" type="submit"><span><img src="{{url_for('static', filename='images/search_icon.png')}}"  width="20px"></span></button>
+                                <form class="form-inline" action="/searchtitle" name="search" method="POST">
+                                    <input type="search" placeholder="Search for Answers..." class="nav-search-bar" name="ques_by_title">
+                                    <button class = "btn btn-outline-primary search-icon" type="submit"><span><img src="{{url_for('static', filename='images/search_icon.png')}}" width="20px"></span></button>
                                 </form>
                         </li>
                     <li class="nav-item">
@@ -138,7 +138,7 @@
                                 </div>
                                 <div class="form-group">
                                         <label for="question-tags" style="font-weight:bold;font-size:large">Tags for Question:</label>
-                                        <input type="text" class="form-control" name="question_tags" id="question-tags" placeholder="Enter the tags of your question" style=" background-color: rgba(248, 252, 255, 0.85);" required>
+                                        <input type="text" class="form-control" name="question_tags" id="question-tags" placeholder="Enter the tags of your question" style=" background-color: rgba(248, 252, 255, 0.85);">
                                 </div>
                                 <button type="submit" class="btn btn-primary" style="text-align: center">Post Question</button>
                                     
@@ -159,14 +159,14 @@
                     </div>
                     <div class="tab-pane fade" id="answer-ques" role="tabpanel" aria-labelledby="answer-ques-tab" style="margin:5%;">
                         <label for="answer-tags" style="font-weight:bold;font-size:larger">Search for Question by Tag:</label>
-                        <form action="#" class="form-inline">
-                            <input type="search" class="form-control" id="answer-tags" placeholder="Enter question tags to search" style=" background-color: rgba(248, 252, 255, 0.85);width:50%;" required>
+                        <form action="/searchtag" class="form-inline" method="POST">
+                            <input type="search" class="form-control" id="answer-tags"  name="ques_by_tag" placeholder="Enter question tags to search" style=" background-color: rgba(248, 252, 255, 0.85);width:50%;" required>
                             <button class = "btn btn-outline-primary search-icon" type="submit" style="width:45px;height:45px"><span><img src="{{url_for('static', filename='images/search_icon.png')}}"  width="30px"></span></button>
                         </form>
                         <br>
                         <label for="answer-title" style="font-weight:bold;font-size:larger">Search for Question by Title:</label>
-                        <form action="#" class="form-inline">
-                            <input type="search" class="form-control" id="answer-title" placeholder="Enter question title to search" style=" background-color: rgba(248, 252, 255, 0.85);width:50%;" required>
+                        <form action="/searchtitle" class="form-inline" method="POST">
+                            <input type="search" class="form-control" name="ques_by_title" id="ques_by_title" placeholder="Enter question title to search" style=" background-color: rgba(248, 252, 255, 0.85);width:50%;" required>
                             <button class = "btn btn-outline-primary search-icon" type="submit" style="width:45px;height:45px"><span><img src="{{url_for('static', filename='images/search_icon.png')}}"  width="30px"></span></button>
                         </form>
                     </div>
